@@ -7,6 +7,11 @@ The plan is to grow documentation together with code in a 50%/50% ratio: Only if
 # Prerequisites
 An API key for OpenAI with unrestricted permissions. This is required because the Python code will create objects like assistants and files.
 
+# Out of scope
+
+* Models
+* Data sets for training
+
 # Deployment scopes
 Agents developed with this framework can be used either stand-alone or deployed into the Azure cloud.
 
