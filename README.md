@@ -4,6 +4,9 @@ This project covers the automated creation and maintenance of AI agents based up
 
 The plan is to grow documentation together with code in a 50%/50% ratio: Only if the textual description is precise and complete next generation LLMs will be able to modify the existing codebase with high precision.
 
+# Overview
+![Diagram](./img/repo-structure.jpg)
+
 # Prerequisites
 An API key for OpenAI with unrestricted permissions. This is required because the Python code will create objects like assistants and files.
 
