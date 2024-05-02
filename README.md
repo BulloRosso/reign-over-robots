@@ -5,12 +5,15 @@ This project covers the automated creation and maintenance of AI agents based up
 The plan is to grow documentation together with code in a 50%/50% ratio: Only if the textual description is precise and complete next generation LLMs will be able to modify the existing codebase with high precision.
 
 # Use cases and scope
-This project aims at a LEAST COST implemntation of agents for customers. The approach is to avoid use as many out-of-the-box services to simplify development.
+This project aims at a LEAST COST implementation of agents for customers. The approach is to avoid use as many out-of-the-box services to simplify development.
 
 Imagine you were a web agency and want to provide agents based solutions to your clients: 
 * the implementations should not differ too much for easier maintenance/updates AND 
 * you want to be able to separate operations costs per tenant AND
 * you want to implement only the business logic, the rest should be covered by cloud services
+
+# Hardware / service requirements
+This project can be checked out to tinker locally. Using the infrastructure folder it can be deployed to the Azure cloud for public access.
 
 # Logical dependencies: Repo folders
 This repository is organized in the following structure:
