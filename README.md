@@ -57,6 +57,3 @@ Agents developed with this framework can be used either stand-alone or deployed 
 
 # Status
 Experimental
-
-# License
-MIT
