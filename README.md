@@ -12,10 +12,19 @@ Imagine you were a web agency and want to provide agents based solutions to your
 * you want to be able to separate operations costs per tenant AND
 * you want to implement only the business logic, the rest should be covered by cloud services
 
-# Overview
+# Logical dependencies: Repo folders
+This repository is organized in the following structure:
 ![Diagram](./img/repo-structure.jpg)
 
-# Deployment view
+* Documentation (first)
+* Agents (the artifacts to be produced)
+* Content (the business logic of the agents)
+* Tools for internal use by agents (integrations with cloud services)
+* Frontends
+
+Operational data is distributed over the different cloud providers (like Azure, OpenAI). This is the tradeoff for the least cost approach. 
+
+# Deployment view: Components
 ![Diagram](./img/deployment-structure.jpg)
 
 As initial step you create a backend and frontend combination for your agent. You provide the API keys,
