@@ -47,6 +47,11 @@ This is a simplified overview.
 # Prerequisites
 An API key for OpenAI with unrestricted permissions. This is required because the Python code will create objects like assistants and files.
 
+## For public cloud deployment
+* Restricted OpenAI keys for the tenants
+* Azure API keys and subscription
+* (optional) Aut0 API key and subscription
+
 # Out of scope
 
 * Models
