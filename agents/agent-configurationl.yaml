@@ -1,0 +1,9 @@
+agents:
+
+  - codingAgent:
+    name: "Coder"
+    frontendUrl: "localhost:4200"
+
+  - creativeAgent:
+    name: "Image painter"
+    frontendUrl: "localhost:3000"
