@@ -29,5 +29,34 @@
         2.1k Tokens
     </div>
 </div>
+
+<script>
+
+    // Pie chart showing (s)ystem, (t)ask and (f)ree context memory
+    //
+    function updatePieChart(ctx_s, ctx_t, ctx_f) {
+        // Calculate the total of all segments
+        const total = ctx_s + ctx_t + ctx_f;
+
+        // Calculate the end degrees of each segment based on their proportion of the total
+        const degree_s = (ctx_s / total) * 360;
+        const degree_st = degree_s + (ctx_t / total) * 360;
+
+        // Set the background gradient of the pie chart
+        const css = `conic-gradient(
+            orange 0deg ${degree_s}deg, 
+            gold ${degree_s}deg ${degree_st}deg, 
+            green ${degree_st}deg 360deg
+        )`;
+
+        document.querySelector('#donut').style.background = css;
+        
+    }
+
+    // Example values for the pie chart
+    updatePieChart(50, 40, 10);
+
+</script>
+
 </body>
 </html>
