@@ -83,7 +83,10 @@ const Content = styled.div`
 `;
 
 const Tools = styled.div`
-  margin: 5px 0;
+  margin-bottom: 5px;
+  border-bottom:1px solid black;
+  background-color:#ccc;
+  padding:4px;
 `;
 
 const ToolLegend = styled.p`
@@ -105,19 +108,18 @@ const AgentNode = ({ data }) => {
   return (
     <Card>
       <Header>
-        <h1>Researcher</h1>
-        <Donut ctx_f={10} ctx_s={30} ctx_t={60}></Donut>
+        <h1>{data.label}</h1>
+        <Donut ctx_f={data.contextMemory.system} ctx_s={data.contextMemory.task} ctx_t={data.contextMemory.free}></Donut>
       </Header>
       <Content>
         <h2>Ollama3</h2>
         <ToolLegend>Tools:</ToolLegend>
         <Tools>
-          <p>
-            <span className="status red"></span>CRM Bridge
-          </p>
-          <p>
-            <span className="status green"></span>FileSearch
-          </p>
+          { data.tools.map((item,index) => (
+          <div key={index}>
+            {item}
+          </div>
+           ))}
         </Tools>
       </Content>
       <Costs>2.1k Tokens</Costs>
