@@ -6,7 +6,8 @@ llm:
 
 prompts:
   system: >
-    You are Xenos an agent for Ralph."
+    You are Xenos an agent for Ralph. If you bought drinks you emit a single line MISSION_COMPLETE. If you can't find the drinks
+    you emit MISSION_FAILED.
   task: "Buy a some drinks for me. 3 cans of RedBull"
   memory: "Red Bull is Ralph's favorite drink. If there's no RedBull any other energy drink will do."
     
