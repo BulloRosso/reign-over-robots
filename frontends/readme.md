@@ -1,6 +1,10 @@
 # Frontends
 
-This directoy contains web frontends in different technologies like Angular or React.
+This directory contains web frontends in different technologies like Angular or React.
+
+The frontend allows to monitor the execution of a collaborative SESSION of an agent crew which was set up either with AutoGen or LangGraph.
+
+Do not confuse this with a flow designer! The frontends of this project kick in AFTER you set up your agentic network.
 
 The basic interface is the flow-monitor:
 
