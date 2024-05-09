@@ -9,12 +9,17 @@ import ReactFlow, {
 } from 'reactflow';
  
 import 'reactflow/dist/style.css';
+import AgentNode from './agentNode';
  
+const nodeTypes = {
+  agent: AgentNode,
+};
+
 const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
+  { id: 'a1', type: 'agent', position: { x: 50, y: 50 }, data: { label: 'Planner' } },
+  { id: 'a2', type: 'agent', position: { x: 50, y: 200 }, data: { label: 'Executor' } },
 ];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+const initialEdges = [{ id: 'e1-2', source: 'a1', target: 'a2', sourceHandle: 'bottom-handle', targetHandle: 'top-handle' }];
  
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -30,6 +35,7 @@ export default function App() {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
