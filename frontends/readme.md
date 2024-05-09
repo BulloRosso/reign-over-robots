@@ -2,4 +2,6 @@
 
 This directoy contains web frontends in different technologies like Angular or React.
 
-First development should be web components to be used in micro frontends.
+The basic interface is the flow-monitor:
+
+![Diagram](/img/agent-cockpit.jpg)
