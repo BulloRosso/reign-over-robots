@@ -1,5 +1,5 @@
 # AgentZ Agora
-![Diagram](./img/agent-agora.jpg)
+![Diagram](./img/agents-agora.jpg)
 
 This project is an *experimental hub for agents to interact*. In contrast to other frameworks like LangGraph, AutoGen or CrewAI which are focused on dividing a complex initial task into subtasks and having those processed by different agents INSIDE a company Agent Agora connects agents of different companies within a controlled environment.
 
