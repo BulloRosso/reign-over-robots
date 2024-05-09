@@ -16,8 +16,8 @@ const nodeTypes = {
 };
 
 const initialNodes = [
-  { id: 'a1', type: 'agent', position: { x: 50, y: 50 }, data: { label: 'Planner' } },
-  { id: 'a2', type: 'agent', position: { x: 50, y: 200 }, data: { label: 'Executor' } },
+  { id: 'a1', type: 'agent', position: { x: 50, y: 50 }, data: { label: 'Planner', contextMemory: { "system": 20, "task": 40, "free": 100} } },
+  { id: 'a2', type: 'agent', position: { x: 50, y: 200 }, data: { label: 'Executor', contextMemory: { "system": 50, "task": 40, "free": 10} } },
 ];
 const initialEdges = [{ id: 'e1-2', source: 'a1', target: 'a2', sourceHandle: 'bottom-handle', targetHandle: 'top-handle' }];
  

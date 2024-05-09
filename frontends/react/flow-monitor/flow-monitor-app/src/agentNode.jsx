@@ -4,7 +4,14 @@ import { Handle } from 'reactflow';
 const AgentNode = ({ data }) => {
     return (
         <div style={{ padding: '10px', background: 'lightblue', borderRadius: '5px' }}>
-            Custom {data.label}
+            <b>{data.label}</b>
+            <p>
+                System: {data.contextMemory.system}
+            </p>
+            <p>
+                Task: {data.contextMemory.task}
+            </p>
+
             <Handle
                 type="target"
                 position="top"
