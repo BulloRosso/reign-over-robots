@@ -1,0 +1,126 @@
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+.tools p {
+    background-color: #ccc;
+    padding:4px;
+    font-size:14px;
+}
+
+.card {
+    width: 250px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+}
+
+.header {
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.header h1 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.contextwindow {
+    font-size: 16px;
+    position:absolute;
+
+    width:50px;
+    height:50px;
+}
+
+.content {
+    padding: 10px;
+}
+
+.content h2 {
+    color: #333;
+    font-size: 16px;
+    font-weight:normal;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.tools p {
+    margin: 5px 0;
+}
+
+.toollegend {
+    font-size:12px;
+    color:#333;
+}
+
+.status {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.red {
+    background-color: #e33;
+}
+
+.green {
+    background-color: darkgreen;
+}
+
+.costs {
+    background-color:#666;
+    color:#fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    border-radius: 0 0 8px 8px;
+}
+
+/* (A) PIE CHART */
+#donut {
+    /* (A1) CIRCLE */
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    position:relative;
+    top:20px;
+    left:185px;
+   
+    /* (A2) SEGMENTS */
+    background: conic-gradient(
+      orange 0deg 80deg,
+      green 80deg 190deg,
+      gold 190deg 360deg
+    );
+  }
+
+  /* (B) DONUT "CONVERSION" */
+    /* (B1) SMALLER CIRCLE */
+    #donut::before {
+        content: "";
+        width: 56px; height: 56px;
+        border-radius: 50%;
+        background: lightblue
+    }
+    
+    /* (B2) "CONVERT PIE TO DONUT" - CENTER SMALLER CIRCLE */
+    #donut {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }

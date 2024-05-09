@@ -1,6 +1,8 @@
 import React from 'react';
 import { Handle } from 'reactflow';
 
+import './assets/agentNode.css';
+
 const AgentNode = ({ data }) => {
     return (
         <div style={{ padding: '10px', background: 'lightblue', borderRadius: '5px' }}>
@@ -41,6 +43,7 @@ const AgentNode = ({ data }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
             />
         </div>
+
     );
 };
 
