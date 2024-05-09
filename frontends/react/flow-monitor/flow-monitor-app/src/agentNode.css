@@ -1,0 +1,66 @@
+body {
+  font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+.tools p {
+  background-color: #ccc;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.contextwindow {
+  font-size: 16px;
+  position: absolute;
+
+  width: 50px;
+  height: 50px;
+}
+
+.red {
+  background-color: #e33;
+}
+
+.green {
+  background-color: darkgreen;
+}
+
+/* (A) PIE CHART */
+#donut {
+  /* (A1) CIRCLE */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  top: 20px;
+  left: 185px;
+
+  /* (A2) SEGMENTS */
+  background: conic-gradient(
+    orange 0deg 80deg,
+    green 80deg 190deg,
+    gold 190deg 360deg
+  );
+}
+
+/* (B) DONUT "CONVERSION" */
+/* (B1) SMALLER CIRCLE */
+#donut::before {
+  content: "";
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: lightblue;
+}
+
+/* (B2) "CONVERT PIE TO DONUT" - CENTER SMALLER CIRCLE */
+#donut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
