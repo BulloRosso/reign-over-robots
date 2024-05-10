@@ -1,5 +1,10 @@
 name: Archon
 
+mission: "Guide agents"
+
+identity:
+  owner: "Ralph"
+
 llm:
   name: ollama3
   contextWindowSizeKB: 8000

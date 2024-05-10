@@ -1,4 +1,8 @@
 name: Xenos
+mission: "Buy drinks"
+
+identity:
+  owner: "Ralph"
 
 llm:
   name: ollama3

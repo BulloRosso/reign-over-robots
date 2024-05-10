@@ -1,5 +1,10 @@
 name: Martha
 
+mission: "Sell items"
+
+identity:
+  owner: "Growth Inc."
+
 llm:
   name: ollama3
   contextWindowSizeKB: 8000

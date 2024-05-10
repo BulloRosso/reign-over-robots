@@ -21,7 +21,7 @@ const initialNodes = [
     type: "agent",
     position: { x: 50, y: 50 },
     data: {
-      label: "Planner",
+      label: "Xenos",
       contextMemory: { system: 20, task: 40, free: 100 },
       tools: ["CRM Bridge","FileSearch"]
     },
@@ -31,7 +31,7 @@ const initialNodes = [
     type: "agent",
     position: { x: 50, y: 400 },
     data: {
-      label: "Executor",
+      label: "Archos",
       contextMemory: { system: 50, task: 40, free: 10 },
       tools: ["Zappier","MailSender","StockTicker"]
     },
