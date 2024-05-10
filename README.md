@@ -19,12 +19,12 @@ The definition of an agent is based on the asumption that a agent's prompt consi
 
 To start the project you run the flow-monitor-app and select an agent to run. Select "Xenos" to see how it works and then play around with it's definition or add other agents.
 
-## Why is this called "Agora"
-Imagine we were in the ancient greece and you send you husband down to the marketplace (called agora at this time) of a another town to get the town's famous pink olives. 
+## Why is this called "Agora"?
+Imagine we were in the ancient greece and you sent your husband down to the marketplace (called agora at this time) of a another town to get the town's famous pink olives. 
 
 You would first tell him about the task ("Get 20 pink olives!") and then send him to the town ("Go to Heraklion!") - this is basically your agent's definition contained in an agent package.
 
-The travel to Heraklion is the transmission of the package to the marketplace (or secure environment). Only greek cititzens are allow to enter the marketplace there - this is enforced by the archon (=chief for security on the agora). This is the execution of the package in the environment (=run the the Python script with the agent's name as a parameter).
+The travel to Heraklion is the transmission of the package to the marketplace (or secure environment). Only greek cititzens are allowed to enter the marketplace there - this is enforced by the archon (=chief for security on the agora). This is the execution of the package in the environment (=run the the Python script with the agent's name as a parameter) after the package has been checked (e. g. valid credentials for the marketplace, check of digital signature).
 
 If you were a outstanding person you could watch the interaction of the agents live on the agora as a bystander. As we are in a virtual world we need a UI to visualize all the interactions which can lead to three outcomes:
 * the husband sucessfully buys the pink olives and heads home
