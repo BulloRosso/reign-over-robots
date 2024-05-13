@@ -16,6 +16,7 @@ from os import environ as env
 print("Demo of langsmith tracing for token sum")
 print("--------------------------------------------------------------------")
 print("Accessing cloud with API key " + env.get("OPENAI_API_KEY"))
+print("Accessing lanchain with API key " + env.get("LANGCHAIN_API_KEY"))
 
 def get_customer_full_name(first_name: str) -> str:
     """
