@@ -19,6 +19,8 @@ The definition of an agent is based on the asumption that a agent's prompt consi
 
 To start the project you run the flow-monitor-app and select an agent to run. Select "Xenos" to see how it works and then play around with it's definition or add other agents.
 
+![Diagram](./img/agora-logo.jpg)
+
 ## Why is this called "Agora"?
 Imagine we were in the ancient greece and you sent your husband down to the marketplace (called agora at this time) of a another town to get the town's famous pink olives. 
 
@@ -30,8 +32,6 @@ If you were a outstanding person you could watch the interaction of the agents l
 * the husband sucessfully buys the pink olives and heads home
 * the husband cannot buy the olives and leaves the agora bare handed
 * the husband dies from a allergic reaction to a olive he tasted (which is the infinte loop that might occur due to pre-mature LLM technology or insufficient prompting)
-
-![Diagram](./img/agora-logo.jpg)
 
 This project is an *experimental hub for agents to interact*. In contrast to other frameworks like LangGraph, AutoGen or CrewAI which are focused on dividing a complex initial task into subtasks and having those processed by different agents INSIDE a company AgentZ Agora connects agents of different companies within a controlled environment.
 
