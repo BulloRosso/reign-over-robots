@@ -2,12 +2,14 @@ import os
 import yaml
 
 class Agent:
-    def __init__(self, name, mission, owner, llm, prompts):
+    def __init__(self, name, mission, owner, llm, system,task,memory):
         self.name = name
         self.mission = mission
         self.owner = owner
         self.llm = llm
-        self.prompts = prompts
+        self.prompt_system = system
+        self.prompt_task = task
+        self.prompt_memory = memory
 
 def read_agent_yaml(file_path):
     with open(file_path, 'r') as file:
@@ -16,8 +18,10 @@ def read_agent_yaml(file_path):
         mission = data['mission']
         owner = data['identity']['owner']
         llm = data['llm']
-        prompts = data['prompts']
-        return Agent(name, mission, owner, llm, prompts)
+        prompts_system = data['prompts']['system']
+        prompts_task = data['prompts']['task']
+        prompts_memory = data['prompts']['memory']
+        return Agent(name, mission, owner, llm, prompts_system, prompts_task, prompts_memory)
 
 def get_agents_from_directory(directory):
     agents = []
@@ -37,4 +41,4 @@ def get_agents_from_directory(directory):
 agents_directory = 'C:/Data/GitHub/reign-over-robots/agents/personas'
 agents = get_agents_from_directory(agents_directory)
 for agent in agents:
-    print(f'Agent Name: {agent.name}, Mission: {agent.mission}')
+    print(f'Agent Name: {agent.name}, Mission: {agent.mission}, Systemp prompt: {agent.prompt_system}')                                                                        

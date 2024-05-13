@@ -31,7 +31,7 @@ If you were a outstanding person you could watch the interaction of the agents l
 * the husband cannot buy the olives and leaves the agora bare handed
 * the husband dies from a allergic reaction to a olive he tasted (which is the infinte loop that might occur due to pre-mature LLM technology or insufficient prompting)
 
-![Diagram](./img/agents-agora.jpg)
+![Diagram](./img/agora-logo.jpg)
 
 This project is an *experimental hub for agents to interact*. In contrast to other frameworks like LangGraph, AutoGen or CrewAI which are focused on dividing a complex initial task into subtasks and having those processed by different agents INSIDE a company AgentZ Agora connects agents of different companies within a controlled environment.
 
