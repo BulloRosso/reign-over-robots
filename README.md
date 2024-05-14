@@ -12,12 +12,27 @@ Build with the following mindset:
 
 ![Diagram](./img/abstract.jpg)
 
-## Maturity (Status)
+The figure above contains some analogies from operating systems:
+* An AI assistant is the OS (Operating System)
+* The assistant can communicate via speech, vision and text directly with the user
+* When there are tasks which require asynchronous operations with other IT systems the assistant uses a tool internally to send an agent (as asynchronous thread)
+* The agent is deployed to a remote system (agora) and started with an PID (unique process id)
+* As a first start of communication the agent talks to the archos agent (service registry) and can find other agents 
+* Synchronous communication between the agents is facilitated by the agent-executor
+* Asynchronous communication between agents is achieved by using MQTT messaging (IPC)
+* Agents can use their own tools to access the internet if the agora's policies allow these connections (via the http proxy)
+* To send feedback back to the OS the agent publishes a MQTT message to a private subject (which is the PID) - the OS can subscribe to this private anonymous pipe
+
+This translates into the following technical components:
+
+![Diagram](./img/technical-diagram.jpg)
+
+## Maturity Level (Status)
 
 | Phase  | Description | Achieved? | Executed on/in | Supported LLMs |
 | ------------- | ------------- | --------| -----------|---|
 | Feasibility Study  | Create the core components stand-alone in Python and a React UI | No | Local computer manually | GPT-4, Llama 3 |
-| MVP  | Create connected core services with observability and admin UI  | Local computer scripted | No | GPT-4, Llama 3 |
+| MVP  | Create connected core services with observability and admin UI  | No | Local computer scripted | GPT-4, Llama 3 |
 | First release | Deployable product | No  |Cloud (Terraform) | TBD |
 
 ## Core components to understand
