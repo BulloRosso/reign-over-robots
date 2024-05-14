@@ -14,8 +14,8 @@ Build with the following mindset:
 
 ## Maturity (Status)
 
-| Phase  | Description | Achieved? | Executed on/in | Supported LLMs
-| ------------- | ------------- | --------| -----------|
+| Phase  | Description | Achieved? | Executed on/in | Supported LLMs |
+| ------------- | ------------- | --------| -----------|---|
 | Feasibility Study  | Create the core components stand-alone in Python and a React UI | No | Local computer manually | GPT-4, Llama 3 |
 | MVP  | Create connected core services with observability and admin UI  | Local computer scripted | No | GPT-4, Llama 3 |
 | First release | Deployable product | No  |Cloud (Terraform) | TBD |
