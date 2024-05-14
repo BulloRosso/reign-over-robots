@@ -4,7 +4,7 @@
 
 This repository defines a trusted decentralized infrastructure (Agora) for agents of different users/parties/companies to interact.
 
-Build with the following mindset:
+Built with the following mindset:
 * Construct everything to support privacy, trust and governance (TRUST FIRST)
 * Use simple text manifests to create agents instead of binaries/direct web requests (KISS)
 * Use existing infrastructure components from industrial environments (DON'T REINVENT THE WHEEL)
