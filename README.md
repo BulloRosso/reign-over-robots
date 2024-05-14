@@ -13,6 +13,7 @@ Build with the following mindset:
 ![Diagram](./img/abstract.jpg)
 
 ## Maturity (Status)
+
 | Phase  | Description | Achieved? | Executed on/in | Supported LLMs
 | ------------- | ------------- | --------| -----------|
 | Feasibility Study  | Create the core components stand-alone in Python and a React UI | No | Local computer manually | GPT-4, Llama 3 |
