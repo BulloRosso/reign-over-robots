@@ -1,13 +1,32 @@
 # AgentZ Agora
-This project tries to answer the question "How can I SEND my agent to a agentic marketplace to interact with the agents of other people/companies?"
+## Problem Statement (Vision)
+"As a user I want my personal assistant to be able to send agents to places I trust to act on my behalf."
 
-To answer this question the project has 3 main artifacts:
+This repository defines a trusted decentralized infrastructure (Agora) for agents of different users/parties/companies to interact.
 
-1. AGENT PACKAGE: The definition of an agent which can be sent via API/eMail
+Build with the following mindset:
+* Construct everything to support privacy, trust and governance (TRUST FIRST)
+* Use simple text manifests to create agents instead of binaries/direct web requests (KISS)
+* Use existing infrastructure components from industrial environments (DON'T REINVENT THE WHEEL)
+* Don't invent a new communication protocol and use LLM capabilities instead (INNOVATION)
 
-2. AGORA ENVIRONMENT: A Pyton script which creates an instance of the visiting agent and guides controlls the process of interaction with the other agents
+![Diagram](./img/abstract.jpg)
 
-3. UI TO MONITOR THE INTERACTIONS: A React web interface to see what's going on and to debug the prompts
+## Maturity (Status)
+| Phase  | Description | Achieved? | Executed on/in | Supported LLMs
+| ------------- | ------------- | --------| -----------|
+| Feasibility Study  | Create the core components stand-alone in Python and a React UI | No | Local computer manually | GPT-4, Llama 3 |
+| MVP  | Create connected core services with observability and admin UI  | Local computer scripted | No | GPT-4, Llama 3 |
+| First release | Deployable product | No  |Cloud (Terraform) | TBD |
+
+## Core components to understand
+The ideas of the agora are centered around 3 main artifacts:
+
+1. AGENT PACKAGE: The definition of an agent which can be sent via API call to the Gatekeeper component, the gatekeeper returns a PID as identifier
+
+2. AGORA ENVIRONMENT: Two Python scripts (FastAPI backends). One is the gatekeeper and authenticates/authorizes agents to enter the agora. The other is the agent-executor which is the runtime powered by LangChain and similar technologies. 
+
+3. UI TO MONITOR THE INTERACTIONS: A React web interface to see what's going on and to debug the prompts of the agentic flow.
 
 The definition of an agent is based on the asumption that a agent's prompt consists of 3 parts:
 
@@ -17,33 +36,38 @@ The definition of an agent is based on the asumption that a agent's prompt consi
 
 3. MEMORY PROMPT: The agent needs to remember certain states or conditions it has already encountered (e. g. to avoid infinite loops)
 
-To start the project you run the flow-monitor-app and select an agent to run. Select "Xenos" to see how it works and then play around with it's definition or add other agents.
+# Getting started
+To start the project you 
+* first start the backend API process in the agora folder
+* then start the flow-monitor-app in the frontends/react folder
+* and select an agent to run. Select "Xenos" to see how it works and then play around with it's definition or add other agents.
 
-![Diagram](./img/agora-logo.jpg)
-
+# Parts of the story
 ## Why is this called "Agora"?
 Imagine we were in the ancient greece and you sent your husband down to the marketplace (called agora at this time) of a another town to get the town's famous pink olives. 
 
 You would first tell him about the task ("Get 20 pink olives!") and then send him to the town ("Go to Heraklion!") - this is basically your agent's definition contained in an agent package.
 
-The travel to Heraklion is the transmission of the package to the marketplace (or secure environment). Only greek cititzens are allowed to enter the marketplace there - this is enforced by the archon (=chief for security on the agora). This is the execution of the package in the environment (=run the the Python script with the agent's name as a parameter) after the package has been checked (e. g. valid credentials for the marketplace, check of digital signature).
+Because your husband is easily distracted (like today's LLMs) you have to use all of you female envisioning power to describe the mission of your husband in a precise, non-intimidating and rewarding way. Meaning: Prompting is the key here for a successful agent...
+
+The travel to Heraklion is the transmission of the agent manifest to the gatekeeper. Only greek cititzens are allowed to enter the marketplace in our case - this is enforced by the archon (=chief for security on the agora). The gatekeeper component checks the identity and allows the execution of the package in the environment. 
 
 If you were a outstanding person you could watch the interaction of the agents live on the agora as a bystander. As we are in a virtual world we need a UI to visualize all the interactions which can lead to three outcomes:
 * the husband sucessfully buys the pink olives and heads home
 * the husband cannot buy the olives and leaves the agora bare handed
-* the husband dies from a allergic reaction to a olive he tasted (which is the infinte loop that might occur due to pre-mature LLM technology or insufficient prompting)
+* the husband dies from a allergic reaction to a olive he tasted (which is the infinite loop that might occur due to pre-mature LLM technology or poor prompting)
 
-This project is an *experimental hub for agents to interact*. In contrast to other frameworks like LangGraph, AutoGen or CrewAI which are focused on dividing a complex initial task into subtasks and having those processed by different agents INSIDE a company AgentZ Agora connects agents of different companies within a controlled environment.
-
-The idea is that an assistant (e. g. a custom GPT) sends an agent to some well-known Agoras in order to complete a task which involves another party.
+This project is an *experimental hub for agents to interact*. In contrast to other frameworks like LangGraph, AutoGen or CrewAI which are focused on dividing a complex initial task into subtasks and having those processed by different agents INSIDE a company AgentZ Agora is targeted to connect agents of different companies within a controlled environment.
 
 ## Sending an agent
 A agent is not a binary package but a YAML manifest. The owner of the agent creates the manifest and encrypts and digitally signs it.
 
+Currently there's no LLM tool (e. g. for an GPT assistant) which will create a manifest file. This must be done manually.
+
 Examples can be found in the agents subfolder of this repository.
 
 ## Restricted Access (Trust)
-The Agora cannot be entered by any agent. A agent manifest YAML is uploaded to the Agora and validated:
+The Agora cannot be entered by any agent. A agent manifest YAML is uploaded to the Agora and will be validated (in the future):
 * is must be encrypted and signed
 * the contained credentials for the Agora must be satisfied (e. g. valid passport number, customer id)
 
@@ -60,12 +84,14 @@ After checkout got to the shell, switch to /frontends/react/flow-monitor/flow-mo
 
 This starts the main UI and requires Ollama3 being started upfront.
 
-## Example scenario
+# Example scenario
 A customer agent XENOS has been sent to the Agora. His first contact is to talk to ARCHOS to get details about the available merchants.
 
 Xenos is looking for some energy drinks. There are three merchants registered on the Agora: John, Martha and Jarvis.
 
 If Xenos is successful he buys 3 cans of Monster energy from Jarvis.
 
-# Status
-Experimental
+# Reign over robots
+This project will be covered in the second book of the Reign Over Robots series on Amazon.
+
+![Diagram](./img/book-series.jpg)
