@@ -33,7 +33,7 @@ This translates into the following technical components:
 
 # Why do we need an agent executor?
 
-In order to control and (in the worst case throttle or ban) agents it is necessary to have control over the agent on a very low level - this cannot be achieved if agents would be just URLs pointing to URLS in the cloud.
+In order to control and (in the worst case throttle or ban) agents it is necessary to have control over the agent on a very low level - this cannot be achieved if agents would be just URLs pointing to unknown services in the cloud.
 
 This is the reason why the agent executor invokes the supported LLMs and monitors the responses (including tool usage).
 
