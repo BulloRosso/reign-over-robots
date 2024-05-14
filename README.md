@@ -27,6 +27,10 @@ This translates into the following technical components:
 
 ![Diagram](./img/technical-diagram.jpg)
 
+# Essential components of the agent definition
+
+![Diagram](./img/agent-subcomponents.jpg)
+
 ## Maturity Level (Status)
 
 | Phase  | Description | Achieved? | Executed on/in | Supported LLMs |
