@@ -31,7 +31,33 @@ This translates into the following technical components:
 
 ![Diagram](./img/agent-subcomponents.jpg)
 
-## Maturity Level (Status)
+# Why do we need an agent executor?
+
+In order to control and (in the worst case throttle or ban) agents it is necessary to have control over the agent on a very low level - this cannot be achieved if agents would be just URLs pointing to URLS in the cloud.
+
+This is the reason why the agent executor invokes the supported LLMs and monitors the responses (including tool usage).
+
+The gatekeeper component can
+* examine the agent manifest for malicious or inappropriate prompting
+* verfify the identity of the owner 
+* check whether the LLM models are supported (for security or cost reasons)
+* whitelist URLs an agent wants to access on the public internet (via tools)
+
+The agent executor can
+* control which agents talk to each other
+* apply quotas or interrupt transactions (tool calls)
+* parse the prompts they are creating for other agents
+* avoid infinite loops caused by unpredictable strategies applied by some agents
+* control the costs for the provider of the agora (by enforcing quotas)
+
+These aspects all build trust and thus are crucial if an agora is a marketplace for
+* medical products
+* validated members of a closed community
+* items regulated by federal laws 
+* legal services
+* services for residents of a local community
+
+# Maturity Level (Status)
 
 | Phase  | Description | Achieved? | Executed on/in | Supported LLMs |
 | ------------- | ------------- | --------| -----------|---|
