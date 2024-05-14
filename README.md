@@ -43,10 +43,10 @@ The gatekeeper component can
 * check whether the LLM models are supported (for security or cost reasons)
 * whitelist URLs an agent wants to access on the public internet (via tools)
 
-The agent executor can
+The agent executor component can
 * control which agents talk to each other
 * apply quotas or interrupt transactions (tool calls)
-* parse the prompts they are creating for other agents
+* parse the prompt a agent has created for the next agent during a conversation
 * avoid infinite loops caused by unpredictable strategies applied by some agents
 * control the costs for the provider of the agora (by enforcing quotas)
 
