@@ -1,7 +1,23 @@
 # Agora (Runtime environment)
-Agora executes Python and is available to the frontends as FastAPI methods.
+Agora is composed of several services which are independent REST API services connected to each other using MQTT
 
-Methods:
-1. First call is the agent which visits the marketplace (and is internally connected to Archos) -> return session number
-2. Seconds call uses session directory <agentname>-<session> (=next step)
-3. Status calls (examine prompt, get actions log, ...)
+## Gatekeeper
+A fast API application using an MQTT agent.
+
+The main use case for the gatekeeper is to deploy a new agent via POST to /agents. This makes the agent available to the executor (MQTT )
+
+## Agent Executor
+
+## MQTT broker for service synchronization
+For testing you can configure one of the public MQTT brokers like HiveMQ (broker.hivemq.com) or EMQ. The configuration is done via a .env file on the agoro directory level.
+
+Example .env file:
+```
+MQTT_BROKER_URL=broker.hivemq.com
+MQTT_BROKER_PORT=1883
+AGORA_NAME=ralph
+```
+
+
+
+
