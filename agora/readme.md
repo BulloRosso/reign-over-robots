@@ -7,12 +7,12 @@ Starting the agora services (after you created the .env file - see below)
 ```
 To make the shell script executable run `chmod u+x start-agora.sh` on the command line
 
-## Gatekeeper
+## Gatekeeper (http port 8077)
 A FastAPI application using a MQTT client.
 
 The main use case for the gatekeeper is to deploy a new agent via POST to /agents. This makes the agent available to the executor (MQTT )
 
-## Agent Executor
+## Agent Executor (http port 8078)
 A FastAPI application using a MQTT client.
 
 The main use case for the gatekeeper is to run a step of a agent2agent communication process. 
