@@ -25,6 +25,7 @@ Example .env file:
 MQTT_BROKER_URL=broker.hivemq.com
 MQTT_BROKER_PORT=1883
 AGORA_NAME=ralph
+OPENAI_API_KEY=...
 ```
 
 
