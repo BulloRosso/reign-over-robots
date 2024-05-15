@@ -2,11 +2,14 @@
 Agora is composed of several services which are independent REST API services connected to each other using MQTT
 
 ## Gatekeeper
-A fast API application using an MQTT agent.
+A FastAPI application using a MQTT client.
 
 The main use case for the gatekeeper is to deploy a new agent via POST to /agents. This makes the agent available to the executor (MQTT )
 
 ## Agent Executor
+A FastAPI application using a MQTT client.
+
+The main use case for the gatekeeper is to run a step of a agent2agent communication process. 
 
 ## MQTT broker for service synchronization
 For testing you can configure one of the public MQTT brokers like HiveMQ (broker.hivemq.com) or EMQ. The configuration is done via a .env file on the agoro directory level.
