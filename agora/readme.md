@@ -1,7 +1,7 @@
 # Agora (Runtime environment)
 Agora is composed of several services which are independent REST API services connected to each other using MQTT
 
-Starting the agora services
+Starting the agora services (after you created the .env file - see below)
 ```
 ./start-agora.sh
 ```
