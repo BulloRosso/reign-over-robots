@@ -1,6 +1,7 @@
 name: John
 
 mission: "Sell items"
+dueDate: "2024-12-31T23:59:59Z"
 
 identity:
   owner: "Happy sip GmbH"

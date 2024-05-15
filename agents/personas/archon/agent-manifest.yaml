@@ -1,6 +1,7 @@
 name: Archon
 
 mission: "Guide agents"
+dueDate: "2024-12-31T23:59:59Z"
 
 identity:
   owner: "Ralph"
