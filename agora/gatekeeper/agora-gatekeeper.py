@@ -22,7 +22,8 @@ load_dotenv(dotenv_path='../.env')
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT broker "+os.getenv("MQTT_BROKER_URL")+"with result code "+str(rc))
-    client.subscribe("agora-internal-"+os.getenv("AGORA_NAME"))
+    agoraName = "agora-internal-"+os.getenv("AGORA_NAME")
+    client.subscribe(agoraName)
 
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))

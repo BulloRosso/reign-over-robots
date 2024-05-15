@@ -1,6 +1,12 @@
 # Agora (Runtime environment)
 Agora is composed of several services which are independent REST API services connected to each other using MQTT
 
+Starting the agora services
+```
+./start-agora.sh
+```
+To make the shell script executable run `chmod u+x start-agora.sh` on the command line
+
 ## Gatekeeper
 A FastAPI application using a MQTT client.
 
