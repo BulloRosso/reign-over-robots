@@ -5,7 +5,13 @@ Starting the agora services (after you created the .env file - see below)
 ```
 ./start-agora.sh
 ```
-To make the shell script executable run `chmod u+x start-agora.sh` on the command line
+To make the shell script executable run `chmod u+x start-agora.sh` on the command line.
+
+After the services are started:
+* the gatekeeper listens on port 8077
+* the agent executor listens on port 8078
+* the fronend app is available on port 5173
+IPC is achieved by using an public MQTT server (for testing purposes).
 
 ## Gatekeeper (http port 8077)
 A FastAPI application using a MQTT client.
