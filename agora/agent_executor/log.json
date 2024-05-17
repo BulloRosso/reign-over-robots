@@ -1,0 +1,11 @@
+[
+    {
+        "state": "start",
+        "prompt": "\n            Agent is in state 'start'. Set my state to 'searching'.\n            ",
+        "response": {
+            "input": "\n            Agent is in state 'start'. Set my state to 'searching'.\n            ",
+            "output": "start_search"
+        },
+        "iteration_to_call": "start_search"
+    }
+]

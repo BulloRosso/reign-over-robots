@@ -1,0 +1,40 @@
+name: Heraklion
+description: "A playground for agents to exchange digital goods and services."
+
+prompt: "A agent must report"
+
+states:
+  - name: "idle"
+    description: "The agent is waiting for the engine to execute it"
+    transitions:
+      - name: "start"
+        description: "The agent starts a new task."
+        target: "busy"
+        action: "start"
+  - name: "waiting-for-user-input"
+    description: "The agent is waiting for instructions from the user via MQTT."
+    transitions:
+      - name: "complete"
+        description: "The agent completes the task."
+        target: "ready-to-leave"
+        action: "complete"
+      - name: "fail"
+        description: "The agent fails the task."
+        target: "ready-to-leave"
+        action: "fail"
+  - name: "error"
+    description: "The agent is in an error state."
+    transitions:
+      - name: "reset"
+        description: "The agent resets to the idle state."
+        target: "idle"
+        action: "reset"
+  - name: "ready-to-leave"
+    description: "The agent can be disposed from the marketplace."
+    transitions:
+      - name: "reset"
+        description: "The agent resets to the idle state."
+        target: "idle"
+        action: "reset"
+
+initialState: "idle"

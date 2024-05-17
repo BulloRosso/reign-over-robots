@@ -2,7 +2,7 @@
 
 This directory contains web frontends in different technologies like Angular or React.
 
-The frontend allows to monitor the execution of a collaborative SESSION of an agent crew which was set up either with AutoGen or LangGraph.
+The frontend allows to monitor the execution of a collaborative SESSION of an agent crew operating on one agora.
 
 Do not confuse this with a flow designer! The frontends of this project kick in AFTER you set up your agentic network.
 
@@ -20,3 +20,31 @@ It also shows the status of the integrations, e. g. you can see a red indicator 
 * THE FILES TAB is a view into the private directory of files shared between the agents. While one agent can pull a file from the internet another could modify this in a later step. Many advanced agentic use cases revolve around creating or modifying files.
 
 * The HISTORY TAB is a compressed "debug view" and contains the sequence of most important ACTIONS that happened during the traversal of the flow graph. An action is a decision by a router component, a tool call or any modification of a file inside the private directory of files. For teachable agents the history also includes the extracted knowledge which was sent to the long term memory storage.
+
+## Arogora state JSON
+
+The backend returns the following JSON after each step:
+```
+{
+    "actingAgent": "Xenos",
+    "agentStatus": "idle",
+
+    "agents": ["Archos","Martha","Jarvis"],
+
+    "tasks": [
+        { "sequenceNo": 1,
+          "title": "Buy some apples",
+          "taskStatus": "TODO"
+        },
+        { "sequenceNo": 2,
+          "title": "Negotiate with Martha",
+          "taskStatus": "TODO"
+        }
+    ]
+
+    "files": [
+        "contract.txt", 
+    ]
+
+}
+```
