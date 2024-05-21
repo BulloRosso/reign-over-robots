@@ -103,7 +103,7 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 # Initialize agent
-agent = (
+agent = (ip
     {
         "input": lambda x: x["input"],
         "agent_scratchpad": lambda x: format_to_openai_function_messages(
