@@ -1,3 +1,11 @@
+# Because Ollama3 needs LangChain 0.2 there currently a conflict:
+#
+# ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+# langchain-openai 0.1.6 requires langchain-core<0.2.0,>=0.1.46, but you have langchain-core 0.2.0 which is incompatible.
+# Successfully installed langchain-0.2.0 langchain-community-0.2.0 langchain-core-0.2.0 langchain-text-splitters-0.2.0 langchain_experimental-0.0.59
+#
+# ==> migrate this to LangChain 0.2 (which needs to be done anyway)
+
 from langchain_openai import ChatOpenAI
 from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
 from langchain.agents import AgentExecutor
