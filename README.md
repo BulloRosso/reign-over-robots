@@ -83,10 +83,37 @@ The definition of an agent is based on the asumption that a agent's prompt consi
 3. MEMORY PROMPT: The agent needs to remember certain states or conditions it has already encountered (e. g. to avoid infinite loops)
 
 # Getting started
-To start the project you 
-* first start the backend API process in the agora folder
-* then start the flow-monitor-app in the frontends/react folder
-* and select an agent to run. Select "Xenos" to see how it works and then play around with it's definition or add other agents.
+
+## Create an Python virtual environment and install the packages
+```
+python -m pip install -r requirements.txt
+```
+
+## Set the communication channels and agora instances
+The MQTT broker allows the agents' owners to control their agents on the different agoras.
+
+Create a .env file in the /agora folder:
+```
+MQTT_BROKER_URL=broker.hivemq.com
+MQTT_BROKER_PORT=1883
+AGORA_NAMES=ralph,shopfloor
+```
+
+## Set the workspace folder
+The workspace folder is the data store for all agent activities as well as the uploaded definitions.
+
+Create a .env file in the /agora/agent_executor folder:
+```
+AGORA_WORKSPACE=C:/Data/GitHub/reign-over-robot/workspace/agoras
+AGORA_AGENTS_REPOSITORY=C:/Data/GitHub/reign-over-robots/workspace/agents
+```
+
+## Start the services
+Switch to the /agora/ folder and start 
+```
+start-agora.sh
+```
+This starts the backend services and the browser instance for the UI.
 
 # Parts of the story
 ## Why is this called "Agora"?
