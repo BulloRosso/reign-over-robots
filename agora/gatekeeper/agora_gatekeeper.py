@@ -10,14 +10,15 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from datetime import datetime
 import asyncio
 import yaml
 from agent_manager import AgentManager
 parent_dir = os.path.abspath('..')
 sys.path.append(parent_dir)
 
-from agora_models import AgoraAgent
-from agora_models import AgoraConfiguration
+# Business logic
+from agora_models import AgoraAgent, AgoraState, AgoraConfiguration
 
 load_dotenv(dotenv_path='../.env')
 
@@ -41,17 +42,23 @@ agoras = []
 
 def load_agoras():
     # replace with environment variable
-    temp_path = "C:/Data/GitHub/reign-over-robots/agora/agoras"
-    print("Loading agora configurations from " + temp_path)
+    temp_path = "C:/Data/GitHub/reign-over-robots/agora/agoras" 
+    print("Loading agora configurations from " + temp_path) 
     for subdir, dirs, files in os.walk(temp_path):
         for file in files:
-            if file.endswith(".yaml") and not "_state" in file:
+            if file.endswith(".yaml") and not "_state" in file: 
                 with open(os.path.join(subdir, file), 'r') as f:
                     data = yaml.safe_load(f)
                     agora = AgoraConfiguration(**data)
                     agoras.append(agora)
                     print("Agora - " + agora.name)
-                    os.makedirs(os.getenv("AGORA_WORKSPACE") + "/" + agora.name, exist_ok=True)
+                    os.makedirs(os.getenv("AGORA_WORKSPACE") + "/" + agora.name, exist_ok=True) 
+                    # create state file if it does not exist
+                    if not (os.path.exists(os.getenv("AGORA_WORKSPACE") + "/" + agora.name + "/state.yaml")): 
+                        agora_state = AgoraState(modelSchema="ai.agora.state.v1", 
+                                                 agents=["Archos"], 
+                                                 lastUpdated=datetime.now().isoformat())
+                        agora_state.save_to_disc(os.getenv("AGORA_WORKSPACE") + "/" + agora.name + "/state.yaml")
     
 
 @app.on_event("startup")

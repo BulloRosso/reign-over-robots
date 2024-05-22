@@ -1,5 +1,5 @@
-schema: ai.agora.state.v1
+modelSchema: ai.agora.state.v1
 
-activeAgents:
+agents:
   - Xenos
   - Archon

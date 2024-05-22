@@ -1,18 +1,27 @@
 '''
-Basic class definitions for the Agora system
+Basic class definitions for the Agora system:
+* AgoraConfiguration:   The instance of an Agora which contains the states for the state machine
+* AgoraState:           The state of an Agora (e.g. active Agents)
+* AgoraAgent:           The acting entitiy on the agora
 '''
 from datetime import datetime
-from pydantic import BaseModel, Field
+from typing_extensions import Unpack
+from pydantic import BaseModel, ConfigDict, Field
+from yaml import dump 
 
 class AgoraConfiguration(BaseModel):
-    publicSchema: str = Field(..., alias="schema")
+    modelSchema: str 
     name: str
     description: str
     
 class AgoraState(BaseModel):
-    name: str
-    agents: list
-    lastUpdated: datetime
+    modelSchema: str 
+    agents: list[str]
+    lastUpdated: str
+
+    def save_to_disc(self, path: str):
+        with open(path, 'w') as f:
+            dump(self.model_dump(), f)  
 
 class AgoraLLMConfiguration(BaseModel):
     name: str
@@ -27,7 +36,7 @@ class AgoraPromptSet(BaseModel):
     memory: str
 
 class AgoraAgent(BaseModel):
-    publicSchema: str = Field(..., alias="schema")
+    modelSchema: str
     name: str
     mission: str = None
     dueDate: str = None
