@@ -1,0 +1,7 @@
+schema: ai.agora.state.v1
+
+activeAgents:
+  - Xenos
+  - Archon
+  - John
+  - Martha
