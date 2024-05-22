@@ -51,6 +51,7 @@ def load_agoras():
                     agora = AgoraConfiguration(**data)
                     agoras.append(agora)
                     print("Agora - " + agora.name)
+                    os.makedirs(os.getenv("AGORA_WORKSPACE") + "/" + agora.name, exist_ok=True)
     
 
 @app.on_event("startup")

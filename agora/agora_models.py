@@ -2,10 +2,10 @@
 Basic class definitions for the Agora system
 '''
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class AgoraConfiguration(BaseModel):
-    schema: str
+    publicSchema: str = Field(..., alias="schema")
     name: str
     description: str
     
@@ -27,7 +27,7 @@ class AgoraPromptSet(BaseModel):
     memory: str
 
 class AgoraAgent(BaseModel):
-    schema: str
+    publicSchema: str = Field(..., alias="schema")
     name: str
     mission: str = None
     dueDate: str = None
