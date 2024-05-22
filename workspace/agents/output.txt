@@ -1,0 +1,20 @@
+name: Xenos
+mission: "Buy drinks"
+dueDate: "2024-12-31T23:59:59Z"
+
+identity:
+  owner: "Ralph"
+
+llm:
+  name: ollama3
+  contextWindowSizeKB: 8000
+
+prompts:
+  system: >
+    You are Xenos an agent for Ralph. If you bought drinks you emit a single line MISSION_COMPLETE. If you can't find the drinks
+    you emit MISSION_FAILED.
+  task: "Buy a some drinks for me. 3 cans of RedBull"
+  memory: "Red Bull is Ralph's favorite drink. If there's no RedBull any other energy drink will do."
+    
+
+  

@@ -96,7 +96,7 @@ Create a .env file in the /agora folder:
 ```
 MQTT_BROKER_URL=broker.hivemq.com
 MQTT_BROKER_PORT=1883
-AGORA_NAMES=ralph,shopfloor
+AGORA_NAME=ralph
 ```
 
 ## Set the workspace folder

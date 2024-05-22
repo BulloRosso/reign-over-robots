@@ -1,3 +1,5 @@
+schema: ai.agora.manifest.v1
+
 name: Heraklion
 description: "A playground for agents to exchange digital goods and services."
 

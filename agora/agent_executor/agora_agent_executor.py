@@ -10,7 +10,7 @@ import asyncio
 parent_dir = os.path.abspath('..')
 sys.path.append(parent_dir)
 
-from agoramodels import AgoraAgent
+from agora.agora_models import AgoraAgent
 
 '''
 Creates a FAST API server listening on port 8000. The server is connected to MQTT broker and listens to the topic "agora-test".

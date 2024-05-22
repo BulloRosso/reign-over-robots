@@ -1,3 +1,5 @@
+schema: ai.agent.manifest.v1
+
 name: John
 
 mission: "Sell items"

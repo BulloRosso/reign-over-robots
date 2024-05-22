@@ -1,3 +1,5 @@
+schema: ai.agora.manifest.v1
+
 name: Munich Medical
 description: "A playground for agents to make appointments with doctors and get medication."
 
