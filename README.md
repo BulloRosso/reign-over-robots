@@ -8,7 +8,7 @@ As of June 2024 the following agentic frameworks are popular. They focus on one 
 |-------------|----------|--------------------------------|-------------------|----------------------|
 | **AutoGen 2**   | company internal | any                    | Conditional state flow (FSM guided conversation) | experimental |
 | **CrewAI**      | company internal | any                    | Fixed processes (sequential, hierarchical), Consensual(Planned) not released | yes (product) |
-| **LangGraph**   | company internal | any                    | Directed cyclic graphs | production ready | yes (base technology) |
+| **LangGraph**   | company internal | any                    | Directed cyclic graphs | yes (base technology) |
 | **Agency Swarm**  | company internal | OpenAI assistant API     | Self-orchestrated messaging | yes (product) |
 | **AgentZ Agora**| **cross-company**| GPT4..., Ollama Llama 3| Planned state flow (FSM guided)| experimental |
 
