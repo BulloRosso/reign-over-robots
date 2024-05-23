@@ -4,14 +4,13 @@ Agora is an experimental agent framework which is specialized in secure cross-co
 ## Positioning
 As of June 2024 the following agentic frameworks are popular. They focus on one company being the owner of a crew of agents while deploying different orchestration methods. 
 
-|-------------|----------|--------------------------------|-------------------|-----------------|
-| Framework   | Scope    | LLMs supported                 | Orchestration     | Production readiness |
+| Framework   | Team scope    | LLMs supported                 | Orchestration     | Production readiness |
 |-------------|----------|--------------------------------|-------------------|----------------------|
-| AutoGen 2   | company internal | any                    | Conditional state flow (FSM guided conversation) | experimental |
-| CrewAI      | company internal | any                    | Fixed processes (sequential, hierarchical), Consensual(Planned) not released | yes (product) |
-| LangGraph   | company internal | any                    | Directed cyclic graphs | production ready | yes (base technology) |
-| Agency Swarm  | company internal | OpenAI assistant API     | Self-orchestrated messaging | yes (product) |
-| AgentZ Agora| **cross-company**| GPT4..., Ollama Llama 3| Planned state flow (FSM guided)| experimental |
+| **AutoGen 2**   | company internal | any                    | Conditional state flow (FSM guided conversation) | experimental |
+| **CrewAI**      | company internal | any                    | Fixed processes (sequential, hierarchical), Consensual(Planned) not released | yes (product) |
+| **LangGraph**   | company internal | any                    | Directed cyclic graphs | production ready | yes (base technology) |
+| **Agency Swarm**  | company internal | OpenAI assistant API     | Self-orchestrated messaging | yes (product) |
+| **AgentZ Agora**| **cross-company**| GPT4..., Ollama Llama 3| Planned state flow (FSM guided)| experimental |
 
 ## Problem Statement (Vision)
 "As a user I want my personal assistant to be able to send agents to places I trust to act on my behalf."
