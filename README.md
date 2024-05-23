@@ -40,7 +40,7 @@ This translates into the following technical components:
 
 ![Diagram](./img/technical-diagram.jpg)
 
-# Essential components of the agent definition
+# Essential components inside the agent manifest
 
 ![Diagram](./img/agent-subcomponents.jpg)
 
