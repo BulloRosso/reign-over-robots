@@ -44,17 +44,17 @@ This translates into the following technical components:
 
 ![Diagram](./img/agent-subcomponents.jpg)
 
-# Why do we need an agent executor?
+# Agent executor
+
+![Diagram](/img/white-box-agent-executor.jpg)
+
+The agent executor is the "engine" behind the framework: it acts as a proxy for function calls by the LLM, it sends and receives the telemetry data for the agent via MQTT and it provides frontend user interfaces with the state of the agents via API methods.
+
+## Why do we need an agent executor?
 
 In order to control and (in the worst case throttle or ban) agents it is necessary to have control over the agent on a very low level - this cannot be achieved if agents would be just URLs pointing to unknown services in the cloud.
 
 This is the reason why the agent executor invokes the supported LLMs and monitors the responses (including tool usage).
-
-The gatekeeper component can
-* examine the agent manifest for malicious or inappropriate prompting
-* verfify the identity of the owner 
-* check whether the LLM models are supported (for security or cost reasons)
-* whitelist URLs an agent wants to access on the public internet (via tools)
 
 The agent executor component can
 * control which agents talk to each other
@@ -63,7 +63,22 @@ The agent executor component can
 * avoid infinite loops caused by unpredictable strategies applied by some agents
 * control the costs for the provider of the agora (by enforcing quotas)
 
-These aspects all build trust and thus are crucial if an agora is a marketplace for
+# Gatekeeper
+
+![Diagram](/img/white-box-gatekeeper.jpg)
+
+The gatekeeper is the the point of contact for tools to place agents on an agora. This is done by uploading a agent manifest YAML via API calls. The gatekeeper also provides the API for downloading file results produced or aquired by an agent.
+
+## Why do we need a gatekeeper?
+
+The gatekeeper component can
+* examine the agent manifest for malicious or inappropriate prompting
+* verfify the identity of the owner 
+* grant or deny access to an agora instance by using the security policies defined in the agora manifest
+* check whether the LLM models are supported (for security or cost reasons)
+* whitelist URLs an agent wants to access on the public internet (via tools)
+
+These aspects of the gatekeeper help to build trust and thus are crucial if an agora is a marketplace for
 * medical products
 * validated members of a closed community
 * items regulated by federal laws 
