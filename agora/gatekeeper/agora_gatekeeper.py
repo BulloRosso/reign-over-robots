@@ -69,7 +69,7 @@ async def startup_event():
 
 @app.get("/")
 async def root():
-    return {"message": "This is the agora gatekeeper. Please use the /agents/ endpoint to POST an agent."}
+    return {"message": "This is the agora gatekeeper. Please use the /{agora-name}/agents/ endpoint to POST an agent."}
 
 @app.post("/{agora}/agents/")
 async def upload_agent_yaml(agora, file: UploadFile):

@@ -38,6 +38,7 @@ class AgoraPromptSet(BaseModel):
 class AgoraAgent(BaseModel):
     modelSchema: str
     name: str
+    role: str
     mission: str = None
     dueDate: str = None
     identity: AgoraIdentity

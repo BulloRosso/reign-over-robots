@@ -1,6 +1,7 @@
 schema: ai.agent.manifest.v1
 
 name: Jarvis
+role: vendor
 
 mission: "Sell items"
 dueDate: "2024-12-31T23:59:59Z"

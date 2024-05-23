@@ -1,7 +1,9 @@
 schema: ai.agent.manifest.v1
 
 name: Xenos
-mission: "Buy drinks"
+role: customer
+
+mission: "Buy items"
 dueDate: "2024-12-31T23:59:59Z"
 
 identity:

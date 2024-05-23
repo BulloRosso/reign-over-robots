@@ -13,6 +13,9 @@ After the services are started:
 * the fronend app is available on port 5173
 IPC is achieved by using an public MQTT server (for testing purposes).
 
+## "House rules" (State machine)
+Each agora definition has the states and transistions of a FSM (finite state machine). This is required to define the options available on the agora - otherwise the state and flow would be random and uncontrollable. Control matters if you consider that the agora provider pays the LLM token fees!
+
 ## Gatekeeper (http port 8077)
 A FastAPI application using a MQTT client.
 
