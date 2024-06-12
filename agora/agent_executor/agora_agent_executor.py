@@ -1,8 +1,10 @@
 import paho.mqtt.client as mqtt
 import os
 import sys
+import json 
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncio
 
@@ -10,7 +12,7 @@ import asyncio
 parent_dir = os.path.abspath('..')
 sys.path.append(parent_dir)
 
-from agora.agora_models import AgoraAgent
+from agora_models import AgoraAgent
 
 '''
 Creates a FAST API server listening on port 8000. The server is connected to MQTT broker and listens to the topic "agora-test".
@@ -37,6 +39,18 @@ def start_mqtt_client():
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",  # React app
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.on_event("startup")
 async def startup_event():
     loop = asyncio.get_running_loop()
@@ -46,7 +60,43 @@ async def startup_event():
 async def root():
     return {"message": "This is the agora agent executor. Please use the /conversation/ endpoint to POST an message."}
 
-@app.post("/conversation/")
-async def create_item(agent: AgoraAgent):
+@app.get("/{agora}/{agent}/")
+async def create_item(agora: str, agent: str):
     # Process the item here
-    return agent
+    return json.loads('''{
+        "agent": "Xenos",
+        "steps": 2,
+        "flowStatus": "success",
+        "session": [
+            {
+                "sender": "Archos",
+                "receiver": "Xenos",
+                "prompt" : {
+                    "system": "Hello, how can I help you today?",
+                    "task": "Xenos wants to buy a red bull",
+                    "memory": "Martha is a seller. Joe is a seller."
+                },
+                "response": "I would like to buy a red bull"
+            },
+            {
+                "sender": "Xenos",
+                "receiver": "Joe",
+                "prompt" : {
+                    "system": "You are a buyer.",
+                    "task": "I would like to buy a red bull",
+                    "memory": ""
+                },
+                "response": "I can offer you one for $2.50"
+            },
+            {
+                "sender": "Xenos",
+                "receiver": "Joe",
+                "prompt" : {
+                    "system": "You are a buyer.",
+                    "task": "Accepted",
+                    "memory": "Joe said he can offer you one for $2.50"
+                },
+                "response": "Sold. Have a good day"
+             }
+        ]}
+    ''' )

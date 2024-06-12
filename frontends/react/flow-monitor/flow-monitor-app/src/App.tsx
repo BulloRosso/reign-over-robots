@@ -28,6 +28,7 @@ import Prompts from './components/prompts';
 import FileList from './components/files';
 import TaskList from './components/tasks';
 import AgentExecutorSessionContextProvider from './contexts/agentExecutorContext';
+import AgentExecutorBackend from './services/AgentExecutorBackend';
 
 // Styles
 import './App.css';
@@ -58,6 +59,7 @@ const useStyles = makeStyles({
 
 export default function App() {
 
+    const backend = AgentExecutorBackend();
     
     const [agentName, setAgentName] = React.useState("Xenos");
 
@@ -133,6 +135,7 @@ export default function App() {
                     </FormControl>
                     <Button color="inherit" 
                             startIcon={<RunIcon/>} 
+                            onClick={ () => backend.loadSession('Xenos') }
                             variant="outlined" 
                             sx={{ marginLeft: "20px",
                                 textTransform: "none"
