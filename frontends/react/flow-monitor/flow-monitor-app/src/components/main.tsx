@@ -1,9 +1,14 @@
 import * as React from 'react';
+
+// Material UI v5
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+
+// Own components
 import WelcomeInfo from './welcome';
 import StateOverview from './finitestatemachine';
+import AgenticInteraction from './agenticInteraction';
 
 interface TabPanelProps {
 children?: React.ReactNode;
@@ -47,15 +52,15 @@ const MainScreen = () => {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
             <Tab label="Welcome" {...a11yProps(0)} sx={{ textTransform: "none" }}/>
-            <Tab label="Agents" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
-            <Tab label="State overview" {...a11yProps(2)} sx={{ textTransform: "none" }}/>
+            <Tab label="Agentic Flow" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
+            <Tab label="State Overview" {...a11yProps(2)} sx={{ textTransform: "none" }}/>
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
            <WelcomeInfo/>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          Item Two
+           <AgenticInteraction      />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <StateOverview/>
