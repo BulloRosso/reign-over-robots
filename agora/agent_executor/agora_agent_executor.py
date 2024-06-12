@@ -60,6 +60,10 @@ async def startup_event():
 async def root():
     return {"message": "This is the agora agent executor. Please use the /conversation/ endpoint to POST an message."}
 
+@app.get("/ping/")
+async def ping():
+    return {"message": "pong"}
+
 @app.get("/{agora}/{agent}/")
 async def create_item(agora: str, agent: str):
     # Process the item here

@@ -18,3 +18,26 @@ body {
 div.MuiBox-root:has(#promptBox) {
   padding: 0;
 }
+
+.bottom-section {
+  color: #999;
+  font-size:small;
+  margin-top:10px;
+  padding-left: 20px;
+  padding-right:20px;
+  border-top: solid 1px #ccc;
+}
+
+.connected-icon {
+  color: darkgreen;
+  float: left;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+
+.disconnected-icon {
+  color: red;
+  float: left;
+  margin-top: 6px;
+  margin-right: 10px;
+}

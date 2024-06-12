@@ -27,6 +27,7 @@ import MainScreen from './components/main';
 import Prompts from './components/prompts';
 import FileList from './components/files';
 import TaskList from './components/tasks';
+import ConnectivityInfo from './components/connectivityInfo';
 import AgentExecutorSessionContextProvider from './contexts/agentExecutorContext';
 import AgentExecutorBackend from './services/AgentExecutorBackend';
 
@@ -156,6 +157,9 @@ export default function App() {
                 </Grid>
                 <Grid xs={4}>
                     <Paper elevation={3}><FileList/></Paper>
+                </Grid>
+                <Grid xs={12}>
+                    <ConnectivityInfo/>
                 </Grid>
             </Grid>
             </AgentExecutorSessionContextProvider>
