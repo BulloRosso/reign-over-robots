@@ -53,7 +53,7 @@ interface TabPanelProps {
                 <Tab label="LLM Response" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
               </Tabs>
             </Box>
-            <CustomTabPanel value={value} index={0} class=""}>
+            <CustomTabPanel value={value} index={0}>
                <PromptInputParts/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
