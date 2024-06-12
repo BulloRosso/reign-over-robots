@@ -1,7 +1,12 @@
 import * as React from 'react';
+
+// MUI v5
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+
+// own Components
+import PromptInputParts from './promptInput';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -48,8 +53,8 @@ interface TabPanelProps {
                 <Tab label="LLM Response" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
               </Tabs>
             </Box>
-            <CustomTabPanel value={value} index={0}>
-               Prompt input
+            <CustomTabPanel value={value} index={0} class=""}>
+               <PromptInputParts/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
                LLM Response

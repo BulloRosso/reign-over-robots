@@ -14,3 +14,7 @@
 body {
   font-family: Roboto, sans-serif;
 }
+
+div.MuiBox-root:has(#promptBox) {
+  padding: 0;
+}
