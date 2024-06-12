@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useState } from 'react';
 
 // Material UI v5
 import Button from '@mui/material/Button';
@@ -26,6 +27,7 @@ import MainScreen from './components/main';
 import Prompts from './components/prompts';
 import FileList from './components/files';
 import TaskList from './components/tasks';
+import AgentExecutorSessionContextProvider from './contexts/agentExecutorContext';
 
 // Styles
 import './App.css';
@@ -56,6 +58,7 @@ const useStyles = makeStyles({
 
 export default function App() {
 
+    
     const [agentName, setAgentName] = React.useState("Xenos");
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -76,6 +79,7 @@ export default function App() {
 
     return (
         <div>
+            <AgentExecutorSessionContextProvider>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static" sx={{ backgroundColor: "#ebba34" }}>
                     <Toolbar variant="dense">
@@ -151,6 +155,7 @@ export default function App() {
                     <Paper elevation={3}><FileList/></Paper>
                 </Grid>
             </Grid>
+            </AgentExecutorSessionContextProvider>
         </div>
     )
 }

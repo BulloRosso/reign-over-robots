@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 
 // MUI v5
 import Box from '@mui/material/Box';
@@ -9,6 +10,7 @@ import Stack from '@mui/material/Stack';
 
 // own Components
 import PromptInputParts from './promptInput';
+import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';    
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -41,6 +43,8 @@ interface TabPanelProps {
     
     const Prompts = () => {
     
+        const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
+
         const [value, setValue] = React.useState(0);
     
         const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -49,6 +53,7 @@ interface TabPanelProps {
       
         return (
           <Box sx={{ width: '100%' }}>
+            Agent: {agentExecutorSession?.session.agent} / Step: {agentExecutorSession?.session.step}
             <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
                 <Chip label="1" sx={{ backgroundColor: "black", color: "white" }}/>
                 <Chip label="2" sx={{ backgroundColor: "gold" }} />
@@ -64,7 +69,7 @@ interface TabPanelProps {
                <PromptInputParts/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-               LLM Response
+               <span onClick={ () => incr()}>Test: Increment global context STEP variable</span>
             </CustomTabPanel>
           </Box>
         );
