@@ -32,13 +32,19 @@ div.MuiBox-root:has(#promptBox) {
 .connected-icon {
   color: darkgreen;
   float: right;
-  margin-top: 6px;
-  margin-right: 10px;
+  margin-top: 7px;
+  margin-left: 5px;
 }
 
 .disconnected-icon {
   color: red;
   float: right;
-  margin-top: 6px;
-  margin-right: 10px;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+.bottom-segment {
+  display: inline-block;
+  white-space: nowrap;
+  min-width:150px;
 }
