@@ -4,6 +4,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 // own Components
 import PromptInputParts from './promptInput';
@@ -47,6 +49,11 @@ interface TabPanelProps {
       
         return (
           <Box sx={{ width: '100%' }}>
+            <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
+                <Chip label="1" sx={{ backgroundColor: "black", color: "white" }}/>
+                <Chip label="2" sx={{ backgroundColor: "gold" }} />
+            </Stack>
+
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
                 <Tab label="Prompt" {...a11yProps(0)} sx={{ textTransform: "none" }}/>

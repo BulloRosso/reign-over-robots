@@ -7,10 +7,12 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+
 const PromptInputParts = () => {
     
     return (
       <span id="promptBox">
+
             <Accordion   sx={{ backgroundColor: '#f0faff'}} >
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -60,6 +62,8 @@ const PromptInputParts = () => {
                 </Typography>
                 </AccordionDetails>
             </Accordion>
+
+           
         </span>
     )
 }
