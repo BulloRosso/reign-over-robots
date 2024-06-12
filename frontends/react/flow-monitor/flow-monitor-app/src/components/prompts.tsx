@@ -53,10 +53,16 @@ interface TabPanelProps {
       
         return (
           <Box sx={{ width: '100%' }}>
-            Agent: {agentExecutorSession?.session.agent} / Step: {agentExecutorSession?.session.step}
             <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
-                <Chip label="1" sx={{ backgroundColor: "black", color: "white" }}/>
-                <Chip label="2" sx={{ backgroundColor: "gold" }} />
+               {
+                  [...Array(agentExecutorSession.session.step)].map((e,i) => {
+                    if (i != agentExecutorSession.session.step -1) {
+                        return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "black", color: "white" }} />
+                    } else {
+                        return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "gold" }} />
+                    }}
+                  )
+               }
             </Stack>
 
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
