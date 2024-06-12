@@ -13,7 +13,7 @@ const WelcomeInfo = () => {
                 The agent executor service will step through each of the interactions between the chosen agents. 
             </p>
             <p>
-            Click "Run Agent" the simulation will start.
+            Click "Run Agent" to start the simulation!
             </p>
         </Box>
     )

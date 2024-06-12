@@ -3,6 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import WelcomeInfo from './welcome';
+import StateOverview from './finitestatemachine';
 
 interface TabPanelProps {
 children?: React.ReactNode;
@@ -57,7 +58,7 @@ const MainScreen = () => {
           Item Two
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          Item Three
+          <StateOverview/>
         </CustomTabPanel>
       </Box>
     );
