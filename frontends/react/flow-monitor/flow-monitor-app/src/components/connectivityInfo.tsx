@@ -27,13 +27,13 @@ const ConnectivityInfo = () => {
         {connectivityState ? (
             <span>
                 <ConnectedIcon className="connected-icon"  />
-                <p>Backend API  of agent executor service connected.</p>
+                <p>Agent executor service connected.</p>
             </span>
              
         ) : (
             <span>
                 <DisconnectedIcon className="disconnected-icon"  />
-                <p>Backend API of agent executor service not available/reachable!</p>
+                <p>Agent executor service not available/reachable!</p>
             </span>
         )}
         </div>

@@ -20,6 +20,7 @@ div.MuiBox-root:has(#promptBox) {
 }
 
 .bottom-section {
+  text-align:right;
   color: #999;
   font-size:small;
   margin-top:10px;
@@ -30,14 +31,14 @@ div.MuiBox-root:has(#promptBox) {
 
 .connected-icon {
   color: darkgreen;
-  float: left;
+  float: right;
   margin-top: 6px;
   margin-right: 10px;
 }
 
 .disconnected-icon {
   color: red;
-  float: left;
+  float: right;
   margin-top: 6px;
   margin-right: 10px;
 }
