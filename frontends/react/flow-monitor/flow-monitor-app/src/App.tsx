@@ -25,15 +25,14 @@ import Paper from '@mui/material/Paper';
 // Own components
 import MainScreen from './components/main';
 import Prompts from './components/prompts';
-import FileList from './components/files';
-import TaskList from './components/tasks';
 import ConnectivityInfo from './components/connectivityInfo';
 import { AgentExecutorSessionContext } from './contexts/agentExecutorContext';
 import AgentExecutorBackend from './services/AgentExecutorBackend';
-
+import TasksAndFiles from './components/tasksAndFiles';
 
 // Styles
 import './App.css';
+import AgoraAndAgent from './components/agoraAndAgent';
 
 const useStyles = makeStyles({
     select: {
@@ -156,13 +155,13 @@ export default function App() {
                    <Paper elevation={3}><MainScreen/></Paper>
                 </Grid>
                 <Grid xs={4}>
-                    <Paper elevation={3}><TaskList/></Paper>
+                    <Paper elevation={3}><TasksAndFiles/></Paper>
                 </Grid>
                 <Grid xs={8}>
                    <Paper elevation={3}><Prompts/></Paper>
                 </Grid>
                 <Grid xs={4}>
-                    <Paper elevation={3}><FileList/></Paper>
+                    <Paper elevation={3}><AgoraAndAgent/></Paper>
                 </Grid>
                 <Grid xs={12}>
                     <ConnectivityInfo/>
