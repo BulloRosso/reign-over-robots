@@ -69,13 +69,17 @@ async def create_item(agora: str, agent: str):
     # Process the item here
     return json.loads('''{
         "agent": "Xenos",
-        "steps": 2,
+        "steps": 3,
         "flowStatus": "success",
-        "session": [
+        "dueDate": "2024-07-01T00:00:00Z",
+        "files": [ "invoice.pdf", "list.txt" ],
+        "tasks": [ "Buy a red bull", "Buy olives", "Have fun" ],
+        "conversationLog": [
             {
                 "sender": "Archos",
                 "receiver": "Xenos",
                 "prompt" : {
+                    "summary": "Pass context as memory",
                     "system": "Hello, how can I help you today?",
                     "task": "Xenos wants to buy a red bull",
                     "memory": "Martha is a seller. Joe is a seller."
@@ -86,6 +90,7 @@ async def create_item(agora: str, agent: str):
                 "sender": "Xenos",
                 "receiver": "Joe",
                 "prompt" : {
+                    "summary": "Ask for a red bull",
                     "system": "You are a buyer.",
                     "task": "I would like to buy a red bull",
                     "memory": ""
@@ -96,6 +101,7 @@ async def create_item(agora: str, agent: str):
                 "sender": "Xenos",
                 "receiver": "Joe",
                 "prompt" : {
+                    "summary": "Buy a red bull",
                     "system": "You are a buyer.",
                     "task": "Accepted",
                     "memory": "Joe said he can offer you one for $2.50"

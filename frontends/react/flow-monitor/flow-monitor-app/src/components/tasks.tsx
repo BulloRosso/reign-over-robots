@@ -1,16 +1,16 @@
 import * as React from 'react';
+import { useContext } from 'react';
+
+// MUI v5
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+
+// own Components
+import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 
 const TaskList = () => {
     
@@ -20,6 +20,9 @@ const TaskList = () => {
       setOpen(!open);
     };
   
+    const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
+    console.log("Tasks: ", agentExecutorSession.session.tasks) 
+
     return (
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -31,18 +34,20 @@ const TaskList = () => {
           </ListSubheader>
         }
       >
-        <ListItemButton>
-          <ListItemIcon>
-            <StarBorder />
-          </ListItemIcon>
-          <ListItemText primary="Buy Red Bull" />
-        </ListItemButton>
-        <ListItemButton>
-          <ListItemIcon>
-          <StarBorder />
-          </ListItemIcon>
-          <ListItemText primary="Buy Shoes" />
-        </ListItemButton>
+      { agentExecutorSession && agentExecutorSession.session.tasks ? (
+                  [...Array(agentExecutorSession.session.tasks)].map((e,i) => {
+                   return (<ListItemButton key={"k" + (i+1)}>
+                            <ListItemIcon>
+                              <StarBorder />
+                            </ListItemIcon>
+                            <ListItemText primary={e} />
+                        </ListItemButton>)
+                  })
+                  ) : (
+                 <div className="info-box">
+                    No tasks or no session loaded.
+                </div>
+        )}
         
       </List>
     );

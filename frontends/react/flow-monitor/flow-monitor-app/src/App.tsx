@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 // Material UI v5
 import Button from '@mui/material/Button';
@@ -28,8 +28,9 @@ import Prompts from './components/prompts';
 import FileList from './components/files';
 import TaskList from './components/tasks';
 import ConnectivityInfo from './components/connectivityInfo';
-import AgentExecutorSessionContextProvider from './contexts/agentExecutorContext';
+import { AgentExecutorSessionContext } from './contexts/agentExecutorContext';
 import AgentExecutorBackend from './services/AgentExecutorBackend';
+
 
 // Styles
 import './App.css';
@@ -62,6 +63,8 @@ export default function App() {
 
     const backend = AgentExecutorBackend();
     
+    const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
+   
     const [agentName, setAgentName] = React.useState("Xenos");
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -79,10 +82,13 @@ export default function App() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const handleSessionLoad = () => {
+        backend.loadSession(agentName, updateSession); 
+    };
 
     return (
         <div>
-            <AgentExecutorSessionContextProvider>
+            
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static" sx={{ backgroundColor: "#ebba34" }}>
                     <Toolbar variant="dense">
@@ -136,7 +142,7 @@ export default function App() {
                     </FormControl>
                     <Button color="inherit" 
                             startIcon={<RunIcon/>} 
-                            onClick={ () => backend.loadSession('Xenos') }
+                            onClick={handleSessionLoad}
                             variant="outlined" 
                             sx={{ marginLeft: "20px",
                                 textTransform: "none"
@@ -162,7 +168,7 @@ export default function App() {
                     <ConnectivityInfo/>
                 </Grid>
             </Grid>
-            </AgentExecutorSessionContextProvider>
+            
         </div>
     )
 }

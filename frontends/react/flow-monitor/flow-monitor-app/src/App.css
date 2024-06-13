@@ -48,3 +48,11 @@ div.MuiBox-root:has(#promptBox) {
   white-space: nowrap;
   min-width:150px;
 }
+
+.info-box {
+  color: #999;
+  padding: 10px;
+  font-size:small;
+  text-align: center;
+  background-color: #efefef;
+}
