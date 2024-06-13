@@ -56,3 +56,7 @@ div.MuiBox-root:has(#promptBox) {
   text-align: center;
   background-color: #efefef;
 }
+
+.task-completed {
+  color: darkgreen;
+}

@@ -73,7 +73,12 @@ async def create_item(agora: str, agent: str):
         "flowStatus": "success",
         "dueDate": "2024-07-01T00:00:00Z",
         "files": [ "invoice.pdf", "list.txt" ],
-        "tasks": [ "Buy a red bull", "Buy olives", "Have fun" ],
+        "tasks": [ { "title": "Buy a red bull",
+                      "status": "completed" },
+                      { "title": "Buy olives",
+                        "status": "completed" },
+                      { "title" : "Have fun", 
+                        "status": "pending" } ],
         "conversationLog": [
             {
                 "sender": "Archos",

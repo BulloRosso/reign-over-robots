@@ -36,7 +36,7 @@ const FileList = () => {
         }
       >
         { agentExecutorSession && agentExecutorSession.session.files ? (
-                  [...Array(agentExecutorSession.session.files)].map((e,i) => {
+                  agentExecutorSession.session.files.map((e,i) => {
                    return <ListItemButton key={"k" + (i+1)}>
                             <ListItemIcon>
                               <FileIcon />

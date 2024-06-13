@@ -7,7 +7,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import StarBorder from '@mui/icons-material/StarBorder';
+import StarBorder from '@mui/icons-material/StarBorderOutlined';
+import StarBorderFilled from '@mui/icons-material/StarOutlined';
 
 // own Components
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
@@ -19,9 +20,10 @@ const TaskList = () => {
     const handleClick = () => {
       setOpen(!open);
     };
-  
+
     const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
     console.log("Tasks: ", agentExecutorSession.session.tasks) 
+
 
     return (
       <List
@@ -34,18 +36,18 @@ const TaskList = () => {
           </ListSubheader>
         }
       >
-      { agentExecutorSession && agentExecutorSession.session.tasks ? (
-                  [...Array(agentExecutorSession.session.tasks)].map((e,i) => {
-                   return (<ListItemButton key={"k" + (i+1)}>
+        { agentExecutorSession && agentExecutorSession.session.tasks ? (
+                  agentExecutorSession.session.tasks.map((e,i) => {
+                   return <ListItemButton key={"k" + (i+1)}>
                             <ListItemIcon>
-                              <StarBorder />
+                              { e.status === "completed" ? <StarBorderFilled  className="task-completed"  titleAccess=':completed' /> : <StarBorder />}
                             </ListItemIcon>
-                            <ListItemText primary={e} />
-                        </ListItemButton>)
+                            <ListItemText primary={e.title} />
+                        </ListItemButton>
                   })
                   ) : (
                  <div className="info-box">
-                    No tasks or no session loaded.
+                    No tasks / no session loaded.
                 </div>
         )}
         

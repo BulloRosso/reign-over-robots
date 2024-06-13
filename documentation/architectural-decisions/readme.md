@@ -1,3 +1,4 @@
-# Documentation
+# Architectural decisions
 
-This documentation is optimized to be processed by multi-modal LLMs. Please include alle diagrams and images in JPG format.
+## React Frontends
+For demonstration purposes (and because the session context is rather small) we use React's context API instead of the Redux library.
