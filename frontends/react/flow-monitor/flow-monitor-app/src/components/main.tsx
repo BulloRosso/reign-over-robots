@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useContext } from 'react';
 
 // Material UI v5
 import Tabs from '@mui/material/Tabs';
@@ -9,6 +10,7 @@ import Box from '@mui/material/Box';
 import WelcomeInfo from './welcome';
 import StateOverview from './finitestatemachine';
 import AgenticInteraction from './agenticInteraction';
+import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 
 interface TabPanelProps {
 children?: React.ReactNode;
@@ -41,7 +43,14 @@ function a11yProps(index: number) {
 
 const MainScreen = () => {
 
+    const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
+   
     const [value, setValue] = React.useState(0);
+    
+    React.useEffect(() => {
+      const isAgentLoaded = agentExecutorSession && agentExecutorSession.session.tasks ? 1 : 0;
+      setValue(isAgentLoaded);
+    }, [agentExecutorSession]);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
