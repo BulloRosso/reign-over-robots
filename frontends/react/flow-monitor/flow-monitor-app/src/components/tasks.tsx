@@ -31,11 +31,7 @@ const TaskList = () => {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Tasks
-          </ListSubheader>
-        }
+        
       >
         { agentExecutorSession && agentExecutorSession.session.tasks ? (
                   agentExecutorSession.session.tasks.map((e,i) => {

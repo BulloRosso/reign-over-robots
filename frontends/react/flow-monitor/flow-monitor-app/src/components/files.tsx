@@ -29,11 +29,7 @@ const FileList = () => {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Files
-          </ListSubheader>
-        }
+        
       >
         { agentExecutorSession && agentExecutorSession.session.files ? (
                   agentExecutorSession.session.files.map((e,i) => {
