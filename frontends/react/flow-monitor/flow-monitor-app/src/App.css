@@ -19,6 +19,12 @@ div.MuiBox-root:has(#promptBox) {
   padding: 0;
 }
 
+.whiteAccordionBox {
+  background-color: white;
+}
+
+const [value, setValue] = React.useState(0);
+
 .bottom-section {
   text-align:right;
   color: #999;
@@ -55,6 +61,10 @@ div.MuiBox-root:has(#promptBox) {
   font-size:small;
   text-align: center;
   background-color: #efefef;
+}
+
+.smallAccordionSummary {
+  padding:0;
 }
 
 .task-completed {

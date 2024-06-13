@@ -23,7 +23,7 @@ const PromptInputParts = (conversationLogEntry) => {
     return (
       <span id="promptBox">
 
-            <Accordion   sx={{ backgroundColor: '#f0faff'}} >
+            <Accordion  className="smallAccordionSummary"   sx={{ backgroundColor: '#f0faff'}} >
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
@@ -33,13 +33,13 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>System</b></Typography>
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.system)}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails  className="whiteAccordionBox">
                 <Typography>
                     {entry.system}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion defaultExpanded sx={{ backgroundColor:  "#fff7e0" }}>
+            <Accordion defaultExpanded  className="smallAccordionSummary" sx={{ backgroundColor:  "#fff7e0" }}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2-content"
@@ -48,13 +48,13 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>Task</b></Typography>
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.task)}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className="whiteAccordionBox">
                 <Typography>
                     {entry.task}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion sx={{ backgroundColor:  "#ffe2ad" }}>
+            <Accordion  className="smallAccordionSummary" sx={{ backgroundColor:  "#ffe2ad" }}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2-content"
@@ -63,7 +63,7 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>Memory</b></Typography>
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.memory)}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails  className="whiteAccordionBox">
                 <Typography>
                     {entry.memory}
                 </Typography>
