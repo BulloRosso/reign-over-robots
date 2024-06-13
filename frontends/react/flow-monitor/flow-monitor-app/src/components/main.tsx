@@ -5,12 +5,15 @@ import { useEffect, useContext } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import MoveDownOutlined from '@mui/icons-material/MoveDownOutlined';
+import SignpostOutlined from '@mui/icons-material/SignpostOutlined';
 
 // Own components
 import WelcomeInfo from './welcome';
 import StateOverview from './finitestatemachine';
 import AgenticInteraction from './agenticInteraction';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
+
 
 interface TabPanelProps {
 children?: React.ReactNode;
@@ -60,9 +63,24 @@ const MainScreen = () => {
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
-            <Tab label="Welcome" {...a11yProps(0)} sx={{ textTransform: "none" }}/>
-            <Tab label="Agentic Flow" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
-            <Tab label="State Overview" {...a11yProps(2)} sx={{ textTransform: "none" }}/>
+            <Tab label="About this app" {...a11yProps(0)} sx={{ textTransform: "none" }} 
+            />
+            <Tab  {...a11yProps(1)} sx={{ textTransform: "none" }}
+             label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <SignpostOutlined />
+              <Box component="span" sx={{ ml: 1 }}>Agentic Flow</Box>
+            </Box>
+            }
+            />
+            <Tab {...a11yProps(2)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <MoveDownOutlined />
+              <Box component="span" sx={{ ml: 1 }}>State Transition Diagram</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>

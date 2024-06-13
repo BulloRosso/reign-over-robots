@@ -65,6 +65,10 @@ const [value, setValue] = React.useState(0);
   min-width:150px;
 }
 
+.fl-right {
+  float:right;
+}
+
 .info-box {
   color: #999;
   padding: 10px;

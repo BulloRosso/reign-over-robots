@@ -7,10 +7,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import MessageOutline from '@mui/icons-material/MessageOutlined';
+import SendOutlined from '@mui/icons-material/SendOutlined';
 
 // own Components
 import PromptInputParts from './promptInput';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';    
+import MessageOutlined from '@mui/icons-material/MessageOutlined';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -79,8 +82,22 @@ const Prompts = () => {
 
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
-            <Tab label="Prompt" {...a11yProps(0)} sx={{ textTransform: "none" }}/>
-            <Tab label="LLM Response" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
+            <Tab {...a11yProps(0)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <SendOutlined />
+              <Box component="span" sx={{ ml: 1 }}>Prompt</Box>
+            </Box>
+            }
+            />
+            <Tab {...a11yProps(1)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <MessageOutlined />
+              <Box component="span" sx={{ ml: 1 }}>LLM response</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
