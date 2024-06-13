@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 
 // MUI v5
 import Accordion from '@mui/material/Accordion';
@@ -6,10 +7,19 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+ 
 
-
-const PromptInputParts = () => {
+const PromptInputParts = (conversationLogEntry) => {
     
+    const entry = conversationLogEntry.value;
+
+    const shortInfo = (entry) => {
+        if (!entry || entry.length == 0) {
+            return "";
+        }
+        return entry.substring(0, 25) + "..." + " (" + entry.length + " Chars)";
+    }
+
     return (
       <span id="promptBox">
 
@@ -21,12 +31,11 @@ const PromptInputParts = () => {
                
                 >
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>System</b></Typography>
-                <Typography sx={{ color: 'text.secondary' }}>You are a merchant... (170 Chars)</Typography>
+                <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.system)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    {entry.system}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -37,12 +46,11 @@ const PromptInputParts = () => {
                 id="panel2-header"
                 >
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>Task</b></Typography>
-                <Typography sx={{ color: 'text.secondary' }}>Buy one can of Red...(276 Chars)</Typography>
+                <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.task)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    {entry.task}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -53,12 +61,11 @@ const PromptInputParts = () => {
                 id="panel2-header"
                 >
                 <Typography sx={{ width: '33%', flexShrink: 0 }}><b>Memory</b></Typography>
-                <Typography sx={{ color: 'text.secondary' }}>Don't contact Mary. (25 Chars)</Typography>
+                <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.memory)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    {entry.memory}
                 </Typography>
                 </AccordionDetails>
             </Accordion>

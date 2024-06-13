@@ -13,72 +13,84 @@ import PromptInputParts from './promptInput';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';    
 
 interface TabPanelProps {
-    children?: React.ReactNode;
-        index: number;
-        value: number;
-    }
-      
-    function CustomTabPanel(props: TabPanelProps) {
-        const { children, value, index, ...other } = props;
+  children?: React.ReactNode;
+      index: number;
+      value: number;
+  }
     
-        return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-        </div>
-        );
-    }
-    
-    function a11yProps(index: number) {
-        return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-        };
-    }
-    
-    const Prompts = () => {
-    
-        const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
+function CustomTabPanel(props: TabPanelProps) {
+    const { children, value, index, ...other } = props;
 
-        const [value, setValue] = React.useState(0);
+    return (
+    <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+    >
+        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+    );
+}
     
-        const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-          setValue(newValue);
-        };
-      
-        return (
-          <Box sx={{ width: '100%' }}>
-            <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
-               {
-                  [...Array(agentExecutorSession.session.step)].map((e,i) => {
-                    if (i != agentExecutorSession.session.step -1) {
-                        return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "black", color: "white" }} />
-                    } else {
-                        return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "gold" }} />
-                    }}
-                  )
-               }
-            </Stack>
+function a11yProps(index: number) {
+    return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
+    
+const Prompts = () => {
 
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
-                <Tab label="Prompt" {...a11yProps(0)} sx={{ textTransform: "none" }}/>
-                <Tab label="LLM Response" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
-              </Tabs>
-            </Box>
-            <CustomTabPanel value={value} index={0}>
-               <PromptInputParts/>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-               <span onClick={ () => incr()}>Test: Increment global context STEP variable</span>
-            </CustomTabPanel>
-          </Box>
-        );
+    const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
+
+    const [currentStepIdx, setStepIdx] = React.useState(0); // index of selected step
+    const [value, setValue] = React.useState(0); // tab index
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+      setValue(newValue);
+    };
+
+    const setStep = () => {
+      incr();
     }
+
+    const steps = agentExecutorSession.session.steps ? agentExecutorSession.session.steps : 0;
+
+    // use n-th element of the conversation log
+    const conversationLogEntry = agentExecutorSession.session.conversationLog ?  agentExecutorSession.session.conversationLog[currentStepIdx].prompt : { summary: "", system: "", task: "", memory: ""};
+    console.log("ConversationLogEntry: ", conversationLogEntry);
+    return (
+      <Box sx={{ width: '100%' }}>
+        <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
+            {
+              [...Array(steps)].map((e,i) => {
+                if (i != currentStepIdx) {
+                    return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "black", color: "white" }} 
+                           onClick={() => setStepIdx(i)}
+                    />
+                } else {
+                    return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "gold" }} />
+                }}
+              )
+            }
+        </Stack>
+
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
+            <Tab label="Prompt" {...a11yProps(0)} sx={{ textTransform: "none" }}/>
+            <Tab label="LLM Response" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+            <PromptInputParts value={conversationLogEntry}/>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+            <span onClick={ () => setStep()}>Test: Increment global context STEP variable</span>
+        </CustomTabPanel>
+      </Box>
+    );
+}
 
 export default Prompts;
