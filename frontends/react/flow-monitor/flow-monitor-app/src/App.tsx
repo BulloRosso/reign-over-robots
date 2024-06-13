@@ -64,6 +64,8 @@ export default function App() {
     
     const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
    
+    const isAgentLoaded = agentExecutorSession && agentExecutorSession.session.tasks ? true : false;
+
     const [agentName, setAgentName] = React.useState("Xenos");
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -143,6 +145,7 @@ export default function App() {
                             startIcon={<RunIcon/>} 
                             onClick={handleSessionLoad}
                             variant="outlined" 
+                            className={!isAgentLoaded ? "divWithRotatingBorder" : ""}
                             sx={{ marginLeft: "20px",
                                 textTransform: "none"
                             }}
