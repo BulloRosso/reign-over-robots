@@ -7,7 +7,10 @@ const StateOverview = () => {
     return (
         <div>
             <p className ="info-text">
-            These are the possible states and transitions as defined in the agora YAML file.
+                <b>The engine's internal way to keep track what to do next</b>
+                <br></br>
+            These are the possible states and transitions as defined in the agora YAML file. Waiting is a crucial state, 
+            as it provides the hook for having a human in the loop. 
             </p>
             <MermaidDiagram chart={example} />
             

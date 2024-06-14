@@ -3,18 +3,28 @@ stateDiagram-v2
     direction TB
 
     classDef active fill:gold
+    classDef final stroke:#000,stroke-width:3px;
 
     [*] --> Planning
     Planning --> Waiting
-    Planning -->[*]: No tasks created
-    Waiting --> [*]: Due date reached
-    Waiting --> [*]: Canceled by human in the loop
-    Waiting --> Negotiating
-    Negotiating --> Waiting
-    Negotiating --> PartialSuccess
+    Planning -->Invalid: No tasks created
+    Waiting --> Expired: Due date reached
+    Waiting --> Negotiating: Work on task
+    Waiting --> Canceled: By human in the loop
+    Negotiating --> Waiting: Task finished or failed
+    Negotiating --> PartialSuccess: 1+ tasks could not be completed
     Negotiating --> Success: All tasks completed
-    PartialSuccess --> [*]: 1+ tasks could not be completed
+    Negotiating --> Waiting: Contact human for feedback
+    Invalid --> [*]
     Success --> [*]
-
-    class Negotiating active
+    PartialSuccess --> [*]
+    Expired --> [*]
+    Canceled --> [*]
+    
+    class Waiting active
+    class Invalid final
+    class Success final
+    class PartialSuccess final
+    class Expired final
+    class Canceled final
     `;
