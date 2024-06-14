@@ -49,6 +49,13 @@ const MqttSignals = () => {
 
     return (
     <div>
+        <p className ="info-text">
+            <b>Exceptions &amp; updates of the agent's taks </b><br/>
+            A real agent is not "fire &amp; forget". It needs to be able to communicate with the user. This is done via MQTT messages. The agent sends messages to the user and the user can send messages to the agent. 
+            <br></br>
+            One example would be to end the agent's deplyoment early when the user for example changed his mind.
+        </p>
+
         <TableContainer>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
@@ -76,9 +83,7 @@ const MqttSignals = () => {
         </Table>
       </TableContainer>
 
-        <p className ="info-text">
-            Communication between agent controller and deployed agents is done via MQTT. This is a list of all MQTT signals that are sent and received by the agent controller.
-        </p>
+      
     </div>
     );
 }

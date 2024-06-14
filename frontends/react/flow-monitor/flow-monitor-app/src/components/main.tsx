@@ -7,7 +7,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MoveDownOutlined from '@mui/icons-material/MoveDownOutlined';
 import SignpostOutlined from '@mui/icons-material/SignpostOutlined';
-import LeakAddOutlined from '@mui/icons-material/LeakAddOutlined';
+import EmojiPeopleOutlined from '@mui/icons-material/EmojiPeopleOutlined';
 
 // Own components
 import WelcomeInfo from './welcome';
@@ -85,8 +85,8 @@ const MainScreen = () => {
             <Tab {...a11yProps(3)} sx={{ textTransform: "none" }}
             label={
               <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
-                <LeakAddOutlined />
-              <Box component="span" sx={{ ml: 1 }}>MQTT signals</Box>
+                <EmojiPeopleOutlined />
+              <Box component="span" sx={{ ml: 1 }}>Human in the Loop</Box>
             </Box>
             }
             />

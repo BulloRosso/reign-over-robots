@@ -54,9 +54,9 @@ const TasksAndFiles = () => {
             <Tab label="Files" {...a11yProps(1)} sx={{ textTransform: "none" }}/>
           </Tabs>
         </Box>
-        <CustomTabPanel>
+        <CustomTabPanel value={value} index={0}>
            <TaskList />
-        </CustomTabPanel>
+        </CustomTabPanel >
         <CustomTabPanel value={value} index={1}>
            <FileList      />
         </CustomTabPanel>
