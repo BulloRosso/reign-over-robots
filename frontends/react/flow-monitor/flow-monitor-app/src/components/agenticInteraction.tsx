@@ -5,9 +5,9 @@ import example from "./exampleMermaidInteractionData.js";
 const AgenticInteraction = () => {
     
     return (
-        <p>
+        <div>
             <MermaidDiagram chart={example} />
-        </p>
+        </div>
     );
 }
 
