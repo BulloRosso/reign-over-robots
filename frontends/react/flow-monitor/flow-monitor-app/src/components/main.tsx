@@ -7,13 +7,14 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MoveDownOutlined from '@mui/icons-material/MoveDownOutlined';
 import SignpostOutlined from '@mui/icons-material/SignpostOutlined';
+import LeakAddOutlined from '@mui/icons-material/LeakAddOutlined';
 
 // Own components
 import WelcomeInfo from './welcome';
 import StateOverview from './finitestatemachine';
 import AgenticInteraction from './agenticInteraction';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
-
+import MqttSignals from './mqttSignals';
 
 interface TabPanelProps {
 children?: React.ReactNode;
@@ -81,6 +82,14 @@ const MainScreen = () => {
             </Box>
             }
             />
+            <Tab {...a11yProps(3)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <LeakAddOutlined />
+              <Box component="span" sx={{ ml: 1 }}>MQTT signals</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
@@ -91,6 +100,9 @@ const MainScreen = () => {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <StateOverview/>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          <MqttSignals/>
         </CustomTabPanel>
       </Box>
     );

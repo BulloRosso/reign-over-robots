@@ -65,6 +65,15 @@ const [value, setValue] = React.useState(0);
   min-width:150px;
 }
 
+.info-text {
+  color: #999;
+  font-size:small;
+} 
+
+.no-padding {
+  padding:0;
+}
+
 .fl-right {
   float:right;
 }
