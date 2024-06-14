@@ -173,9 +173,9 @@ export default function App() {
                                 borderColor: 'white',
                             }}
                         >
-                            <MenuItem value={"Xenos"}>Xenos</MenuItem>
-                            <MenuItem value={"Martha"}>Martha</MenuItem>
-                            <MenuItem value={"Joe"}>Joe</MenuItem>
+                            <MenuItem value={"Xenos"}>Xenos@Heraklion</MenuItem>
+                            <MenuItem value={"Martha"}>Martha@Heraklion</MenuItem>
+                            <MenuItem value={"Joe"}>Joe@Heraklion</MenuItem>
                         </Select>
                     </FormControl>
                     <Button color="inherit" 
