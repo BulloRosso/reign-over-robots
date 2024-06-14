@@ -11,7 +11,8 @@ stateDiagram-v2
     Waiting --> Expired: Due date reached
     Waiting --> Negotiating: Work on task
     Waiting --> Canceled: By human in the loop
-    Negotiating --> Waiting: Task finished or failed
+    Waiting --> Planning: Feedback received
+    Negotiating --> Waiting: Next task
     Negotiating --> PartialSuccess: 1+ tasks could not be completed
     Negotiating --> Success: All tasks completed
     Negotiating --> Waiting: Contact human for feedback
