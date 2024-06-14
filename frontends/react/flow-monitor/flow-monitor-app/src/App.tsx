@@ -21,6 +21,11 @@ import Select from '@mui/material/Select';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 // Own components
 import MainScreen from './components/main';
@@ -77,15 +82,28 @@ export default function App() {
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const [dialogOpen, setDialogOpen] = React.useState(false);
+
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
+    
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     const handleSessionLoad = () => {
         backend.loadSession(agentName, updateSession); 
     };
+
+    const handleClickBurgerMenuItem = () => {
+        setDialogOpen(true);
+        setAnchorEl(null);
+    };
+
+    const handleCloseDialog = () => {
+        setDialogOpen(false);
+      };
 
     return (
         <div>
@@ -112,10 +130,29 @@ export default function App() {
                         'aria-labelledby': 'basic-button',
                         }}
                     >
-                        <MenuItem onClick={handleClose}>Change agora</MenuItem>
-                        <MenuItem onClick={handleClose}>Check backend API</MenuItem>
-                        <MenuItem onClick={handleClose}>Reset</MenuItem>
+                        <MenuItem onClick={handleClickBurgerMenuItem}>Change agora</MenuItem>
+                        <MenuItem onClick={handleClickBurgerMenuItem}>Check backend API</MenuItem>
+                        <MenuItem onClick={handleClickBurgerMenuItem}>Reset</MenuItem>
                     </Menu>
+
+                    <Dialog
+                        open={dialogOpen}
+                        onClose={handleCloseDialog}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">{"Not implemented"}</DialogTitle>
+                        <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            This is a non-vital function and will be implemented at a later stage.
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick={handleCloseDialog} autoFocus>
+                            I understand
+                        </Button>
+                        </DialogActions>
+                    </Dialog>
 
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         AgentZ Agora
