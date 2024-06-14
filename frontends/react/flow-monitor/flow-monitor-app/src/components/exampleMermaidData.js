@@ -4,7 +4,9 @@ stateDiagram-v2
 
     classDef active fill:gold
 
-    [*] --> Waiting
+    [*] --> Planning
+    Planning --> Waiting
+    Planning -->[*]: No tasks created
     Waiting --> [*]: Due date reached
     Waiting --> Negotiating
     Negotiating --> Waiting

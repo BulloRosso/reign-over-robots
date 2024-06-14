@@ -53,7 +53,7 @@ const MqttSignals = () => {
             <b>Exceptions &amp; updates of the agent's taks </b><br/>
             A real agent is not "fire &amp; forget". It needs to be able to communicate with the user. This is done via MQTT messages. The agent sends messages to the user and the user can send messages to the agent. 
             <br></br>
-            One example would be to end the agent's deplyoment early when the user for example changed his mind.
+            One example would be to end the agent's deployment early when the user for example changed his mind.
         </p>
 
         <TableContainer>
