@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 
 // MUI v5
 import Table from '@mui/material/Table';
@@ -8,6 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { formatDistanceToNow,formatDate } from 'date-fns';
+import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 
 const MqttSignals = () => {
     
@@ -21,7 +23,7 @@ const MqttSignals = () => {
         const timestampRelative = formatDate(new Date(timestampUTC), 'MM/dd HH:mm');
         return { timestampRelative, sender, message };
       }
-      
+    /*  
     const rows = [
     createData('Homebase', "2024-06-14T12:01Z", "Add two kilos of olives to the shopping list"),
     createData('Agent', "2024-06-14T12:25Z", "Confirmed 'olives'. But no merchant offers olives on the market."),
@@ -29,6 +31,21 @@ const MqttSignals = () => {
     createData('Agent', "2024-06-14T15:32Z", "Confirmed 'apples'. Apples are available at the market."),
     createData('Agent',"2024-06-14T15:45Z", "Baught apples at the market."),
     ];
+    */
+
+    const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
+   
+    const [telemetryLog, setTelemetryLog] = React.useState([]);
+    
+    React.useEffect(() => {
+      const isAgentLoaded = agentExecutorSession && agentExecutorSession.session.telemetryLog ? 1 : 0;
+      if (isAgentLoaded === 1)
+        setTelemetryLog(agentExecutorSession.session.telemetryLog);
+    }, [agentExecutorSession]);
+
+    const rows = telemetryLog.map((e,i) => {
+      return createData(e.sender, e.timestamp, e.message);
+    });
 
     return (
     <div>
@@ -36,8 +53,8 @@ const MqttSignals = () => {
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell>Sender</TableCell>
-              <TableCell align="left">Timestamp</TableCell>
+              <TableCell>Timestamp</TableCell>
+              <TableCell align="left">Sender</TableCell>
               <TableCell align="left">Message</TableCell>
               
             </TableRow>
@@ -51,7 +68,7 @@ const MqttSignals = () => {
                 <TableCell component="th" scope="row">
                   {row.timestampRelative}
                 </TableCell>
-                <TableCell align="left">{row.sender}</TableCell>
+                <TableCell align="left"><b>{row.sender}</b></TableCell>
                 <TableCell align="left">{row.message}</TableCell>
               </TableRow>
             ))}

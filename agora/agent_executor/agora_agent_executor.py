@@ -79,6 +79,13 @@ async def create_item(agora: str, agent: str):
                         "status": "completed" },
                       { "title" : "Have fun", 
                         "status": "pending" } ],
+        "telemetryLog": [
+                { "sender": "Homebase", "timestamp": "2024-06-14T12:01Z", "message": "Add two kilos of olives to the shopping list"},
+                { "sender": "Agent", "timestamp":"2024-06-14T12:25Z", "message": "Confirmed 'olives'. But no merchant offers olives on the market."},
+                { "sender": "Homebase", "timestamp":"2024-06-14T15:31Z", "message": "Add three apples instead of olives to the shopping list"},
+                { "sender": "Agent", "timestamp":"2024-06-14T15:32Z", "message": "Confirmed 'apples'. Apples are available at the market."},
+                { "sender": "Agent","timestamp":"2024-06-14T15:45Z", "message": "Baught apples at the market."}  
+        ],
         "conversationLog": [
             {
                 "sender": "Archos",
