@@ -4,8 +4,8 @@ import logo from '../assets/agora-logo.jpg';
 
 const WelcomeInfo = () => {
     return (
-        <Box sx={{ width: '100%', minHeight: '280px' }}>
-            <img src={logo} width="250px" style={{float:"left", marginLeft: "-30px"}} />
+        <div className='welcome-box' >
+            <img src={logo} width="250px" style={{float:"left"}} />
             <p>
             This frontend allows you to monitor the <b>flow of data between agents</b> when entering an agora.
             </p>
@@ -15,7 +15,7 @@ const WelcomeInfo = () => {
             <p>
             Click "Run Agent" to start the simulation!
             </p>
-        </Box>
+        </div>
     )
 }
 

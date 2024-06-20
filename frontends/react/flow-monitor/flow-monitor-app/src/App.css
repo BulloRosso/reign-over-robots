@@ -2,6 +2,22 @@
   padding:8px
 }
 
+div.MuiBox-root:has(header) {
+  padding: 0;
+}
+
+div.MuiPaper-root:has(div.MuiBox-root) {
+  padding: 0;
+}
+
+div.MuiBox-root:has(div.MuiBox-root) {
+  padding: 0;
+}
+
+header.MuiAppBar-root {
+  margin:0;
+}
+
 .MuiGrid2-root {
   padding:8px;
 }
@@ -15,15 +31,11 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-div.MuiBox-root:has(#promptBox) {
-  padding: 0;
-}
+
 
 .whiteAccordionBox {
   background-color: white;
 }
-
-const [value, setValue] = React.useState(0);
 
 .bottom-section {
   text-align:right;
@@ -69,6 +81,7 @@ const [value, setValue] = React.useState(0);
   padding-left: 10px;
   padding-right:10px;
   font-family: Consolas, monospace;
+  min-height:280px;
 }
 
 div.MuiBox-root {
@@ -109,6 +122,12 @@ div.MuiBox-root {
 
 .task-completed {
   color: darkgreen;
+}
+
+.welcome-box {
+  min-height:297px;
+  min-width:400px;
+  padding-right:10px;
 }
 
 @keyframes gradient {

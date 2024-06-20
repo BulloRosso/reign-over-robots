@@ -88,7 +88,7 @@ const Prompts = () => {
     
     return (
       <Box sx={{ width: '100%' }}>
-        <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
+        <Stack direction="row" spacing={1} sx={{ marginTop: "10px", padding:"10px", paddingBottom: 0 }}>
             {
               [...Array(steps)].map((e,i) => {
                 if (i != currentStepIdx) {
