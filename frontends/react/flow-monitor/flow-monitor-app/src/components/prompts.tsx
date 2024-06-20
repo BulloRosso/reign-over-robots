@@ -7,13 +7,14 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import MessageOutline from '@mui/icons-material/MessageOutlined';
+import HandymanOutlined from '@mui/icons-material/HandymanOutlined';
 import SendOutlined from '@mui/icons-material/SendOutlined';
 
 // own Components
 import PromptInputParts from './promptInput';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';    
 import MessageOutlined from '@mui/icons-material/MessageOutlined';
+import ToolsUsed from './toolsUsed';  
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -98,6 +99,14 @@ const Prompts = () => {
             </Box>
             }
             />
+            <Tab {...a11yProps(2)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <HandymanOutlined />
+              <Box component="span" sx={{ ml: 1 }}>Tools used</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
@@ -105,6 +114,9 @@ const Prompts = () => {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
             <span onClick={ () => setStep()}>Test: Increment global context STEP variable</span>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+             <ToolsUsed />
         </CustomTabPanel>
       </Box>
     );
