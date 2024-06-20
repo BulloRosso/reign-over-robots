@@ -97,8 +97,7 @@ async def create_item(agora: str, agent: str):
             "mission": "Buy items",
             "dueDate": "2024-12-31T23:59:59Z",
             "identity": {  "owner": "Ralph" },
-            "imageUrl": "https://raw.githubusercontent.com/BulloRosso/reign-over-robots/main/img/agent-example.jpg",
-            "dueDate": "2024-07-01T00:00:00Z" 
+            "imageUrl": "https://raw.githubusercontent.com/BulloRosso/reign-over-robots/main/img/agent-example.jpg"
                       },
         "domainLongTermMemory": {
             "nodes": [],

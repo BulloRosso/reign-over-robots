@@ -22,11 +22,16 @@ const AgoraInfo = () => {
 
   return (
     <div style={{ padding: "8px" }}>
+      { agoraName && <span>
       <b>{agoraName}</b><br></br>
       <p style={{ color:"#999"}}>
           {agoraDescription}
         </p>
       <img src={agoraImg} style={{ maxWidth:"200px", maxHeight: "200px" }} />
+      </span>}
+      { agoraName === "" ? <div className="info-box">
+          No agent / no session loaded.
+          </div> :""}
     </div>
     );
 }

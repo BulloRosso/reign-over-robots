@@ -20,14 +20,17 @@ const AgentInfo = () => {
 
     return (
       <div style={{ padding: "8px" }}>
-        <b>{agentName}</b> ({role})<br></br>
+        { agentName && <span><b>{agentName}</b> ({role})<br></br>
         <p style={{ color:"#999"}}>
           {mission}
         </p>
         <img src={agentImg} style={{ maxWidth:"150px", maxHeight: "150px" }} />
         <p>
           <EventBusyOutlinedIcon style={{ color: "#999", top: "5px", position: "relative"}} /> {dueDate}
-        </p>
+        </p></span>}
+        { agentName === "" ? <div className="info-box">
+          No agent / no session loaded.
+          </div> :""}
       </div>
     );
 }
