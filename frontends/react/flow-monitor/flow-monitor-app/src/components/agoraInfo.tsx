@@ -13,21 +13,21 @@ import FileIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 
 const AgoraInfo = () => {
+ 
+  const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
     
-    const [open, setOpen] = React.useState(true);
+  const agoraImg = agentExecutorSession.session.agoraProfile ? agentExecutorSession.session.agoraProfile.imageUrl : "";
+  const agoraName = agentExecutorSession.session.agoraProfile ? agentExecutorSession.session.agoraProfile.name : "";
+  const agoraDescription = agentExecutorSession.session.agoraProfile ? agentExecutorSession.session.agoraProfile.description : "";
 
-    const handleClick = () => {
-      setOpen(!open);
-    };
-
-    const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
-    console.log("Files: ", agentExecutorSession.session.files) 
-
-
-    return (
-      <div>
-        Agora Info placeholder
-      </div>
+  return (
+    <div style={{ padding: "8px" }}>
+      <b>{agoraName}</b><br></br>
+      <p style={{ color:"#999"}}>
+          {agoraDescription}
+        </p>
+      <img src={agoraImg} style={{ maxWidth:"200px", maxHeight: "200px" }} />
+    </div>
     );
 }
 

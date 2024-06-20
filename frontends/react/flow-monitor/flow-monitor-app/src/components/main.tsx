@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import MoveDownOutlined from '@mui/icons-material/MoveDownOutlined';
 import SignpostOutlined from '@mui/icons-material/SignpostOutlined';
 import EmojiPeopleOutlined from '@mui/icons-material/EmojiPeopleOutlined';
+import ShareOutlined from '@mui/icons-material/ShareOutlined';
 
 // Own components
 import WelcomeInfo from './welcome';
@@ -15,7 +16,7 @@ import StateOverview from './finitestatemachine';
 import AgenticInteraction from './agenticInteraction';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 import MqttSignals from './mqttSignals';
-
+import LongTermMemory from './longTermMemory';
 interface TabPanelProps {
 children?: React.ReactNode;
     index: number;
@@ -54,7 +55,7 @@ const MainScreen = () => {
     React.useEffect(() => {
       const isAgentLoaded = agentExecutorSession && agentExecutorSession.session.tasks ? 1 : 0;
       setValue(isAgentLoaded);
-    }, [agentExecutorSession]);
+     }, [agentExecutorSession]);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
@@ -90,6 +91,14 @@ const MainScreen = () => {
             </Box>
             }
             />
+             <Tab {...a11yProps(4)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <ShareOutlined />
+              <Box component="span" sx={{ ml: 1 }}>Long-term memory</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
@@ -103,6 +112,9 @@ const MainScreen = () => {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
           <MqttSignals/>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={4}>
+          <LongTermMemory/>
         </CustomTabPanel>
       </Box>
     );

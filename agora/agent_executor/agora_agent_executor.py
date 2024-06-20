@@ -87,10 +87,17 @@ async def create_item(agora: str, agent: str):
                 { "sender": "Agent","timestamp":"2024-06-14T15:45Z", "message": "Baught apples at the market."}  
         ],
         "agoraProfile": {
-            "name": "Heraklion" 
+            "name": "Heraklion",
+            "description": "A playground for agents to exchange digital goods and services.",
+            "imageUrl": "https://raw.githubusercontent.com/BulloRosso/reign-over-robots/main/img/agora-example.jpg"
                       },
         "agentProfile": {
             "name": "Xenos", 
+            "role": "customer",
+            "mission": "Buy items",
+            "dueDate": "2024-12-31T23:59:59Z",
+            "identity": {  "owner": "Ralph" },
+            "imageUrl": "https://raw.githubusercontent.com/BulloRosso/reign-over-robots/main/img/agent-example.jpg",
             "dueDate": "2024-07-01T00:00:00Z" 
                       },
         "domainLongTermMemory": {
