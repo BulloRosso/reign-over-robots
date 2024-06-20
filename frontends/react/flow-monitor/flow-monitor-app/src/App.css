@@ -59,6 +59,18 @@ const [value, setValue] = React.useState(0);
   border-top: solid 1px #ccc;
 }
 
+.input-text {
+  font-family: Consolas, monospace important;
+}
+
+.response-text {
+  margin-top:10px;
+  background-color: #f9f9f9;
+  padding-left: 10px;
+  padding-right:10px;
+  font-family: Consolas, monospace;
+}
+
 div.MuiBox-root {
   padding: 8px;
 

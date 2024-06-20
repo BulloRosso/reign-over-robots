@@ -14,7 +14,8 @@ import SendOutlined from '@mui/icons-material/SendOutlined';
 import PromptInputParts from './promptInput';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';    
 import MessageOutlined from '@mui/icons-material/MessageOutlined';
-import ToolsUsed from './toolsUsed';  
+import ToolsUsed from './toolsUsed'; 
+import PromptResponse from './promptResponse'; 
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -60,11 +61,31 @@ const Prompts = () => {
       incr();
     }
 
-    const steps = agentExecutorSession.session.steps ? agentExecutorSession.session.steps : 0;
+    const handleStepIdxClick = (idx) => {  
+      if (idx %2 != 0) {
+        setValue(0); // Prompt tab
+      } else {
+        setValue(1); // Response tab
+      }
+      setStepIdx(idx);
+    }
+
+    // mapping required because one index in the conversation log corresponds to two steps in the flow (prompt and response)
+    const mapToOriginal = (idx) => {
+      if (idx < 1) 
+        return 0;
+
+      if (idx % 2 === 0) 
+        return idx -2;
+
+      return idx -1;
+    }
+
+    const steps = agentExecutorSession.session.steps ? (agentExecutorSession.session.steps * 2)-1 : 0;
 
     // use n-th element of the conversation log
-    const conversationLogEntry = agentExecutorSession.session.conversationLog ?  agentExecutorSession.session.conversationLog[currentStepIdx].prompt : { summary: "", system: "", task: "", memory: ""};
-    console.log("ConversationLogEntry: ", conversationLogEntry);
+    const conversationLogEntry = agentExecutorSession.session.conversationLog ?  agentExecutorSession.session.conversationLog[mapToOriginal(currentStepIdx)] : {prompt: { summary: "", system: "", task: "", memory: ""}};
+    
     return (
       <Box sx={{ width: '100%' }}>
         <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
@@ -72,7 +93,7 @@ const Prompts = () => {
               [...Array(steps)].map((e,i) => {
                 if (i != currentStepIdx) {
                     return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "black", color: "white" }} 
-                           onClick={() => setStepIdx(i)}
+                           onClick={() => handleStepIdxClick(i)}
                     />
                 } else {
                     return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "gold" }} />
@@ -110,10 +131,10 @@ const Prompts = () => {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-            <PromptInputParts value={conversationLogEntry}/>
+            <PromptInputParts value={conversationLogEntry.prompt}/>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-            <span onClick={ () => setStep()}>Test: Increment global context STEP variable</span>
+            <PromptResponse value={conversationLogEntry.response} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
              <ToolsUsed />

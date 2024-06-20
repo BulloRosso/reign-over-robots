@@ -34,7 +34,7 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.system)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails  className="whiteAccordionBox">
-                <Typography>
+                <Typography className='input-text'>
                     {entry.system}
                 </Typography>
                 </AccordionDetails>
@@ -49,7 +49,7 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.task)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails className="whiteAccordionBox">
-                <Typography>
+                <Typography  className='input-text'>
                     {entry.task}
                 </Typography>
                 </AccordionDetails>
@@ -64,7 +64,7 @@ const PromptInputParts = (conversationLogEntry) => {
                 <Typography sx={{ color: 'text.secondary' }}>{shortInfo(entry.memory)}</Typography>
                 </AccordionSummary>
                 <AccordionDetails  className="whiteAccordionBox">
-                <Typography>
+                <Typography  className='input-text'>
                     {entry.memory}
                 </Typography>
                 </AccordionDetails>
