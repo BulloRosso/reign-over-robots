@@ -75,6 +75,10 @@ body {
   font-family: Consolas, monospace important;
 }
 
+div.MuiBox-root:has(button) {
+  padding:0;
+}
+
 .response-text {
   margin-top:10px;
   background-color: #f9f9f9;
