@@ -68,10 +68,10 @@ async def ping():
 async def create_item(agora: str, agent: str):
     # Process the item here
     return json.loads('''{
-        "agent": "Xenos",
+        
         "steps": 3,
         "flowStatus": "success",
-        "dueDate": "2024-07-01T00:00:00Z",
+       
         "files": [ "invoice.pdf", "list.txt" ],
         "tasks": [ { "title": "Buy a red bull",
                       "status": "completed" },
@@ -86,6 +86,17 @@ async def create_item(agora: str, agent: str):
                 { "sender": "Agent", "timestamp":"2024-06-14T15:32Z", "message": "Confirmed 'apples'. Apples are available at the market."},
                 { "sender": "Agent","timestamp":"2024-06-14T15:45Z", "message": "Baught apples at the market."}  
         ],
+        "agoraProfile": {
+            "name": "Heraklion" 
+                      },
+        "agentProfile": {
+            "name": "Xenos", 
+            "dueDate": "2024-07-01T00:00:00Z" 
+                      },
+        "domainLongTermMemory": {
+            "nodes": [],
+            "edges": []
+                      },
         "conversationLog": [
             {
                 "sender": "Archos",
@@ -96,7 +107,11 @@ async def create_item(agora: str, agent: str):
                     "task": "Xenos wants to buy a red bull",
                     "memory": "Martha is a seller. Joe is a seller."
                 },
-                "response": "I would like to buy a red bull"
+                "response": "I would like to buy a red bull",
+                "state": {
+                      "onEnter": "None",
+                      "transition": "DoPlanning",
+                      "onExit": "Planning"}
             },
             {
                 "sender": "Xenos",
@@ -107,7 +122,11 @@ async def create_item(agora: str, agent: str):
                     "task": "I would like to buy a red bull",
                     "memory": ""
                 },
-                "response": "I can offer you one for $2.50"
+                "response": "I can offer you one for $2.50",
+                 "state": {
+                      "onEnter": "Planning",
+                      "transition": "DoTasks",
+                      "onExit": "Negotiating"}
             },
             {
                 "sender": "Xenos",
@@ -118,7 +137,11 @@ async def create_item(agora: str, agent: str):
                     "task": "Accepted",
                     "memory": "Joe said he can offer you one for $2.50"
                 },
-                "response": "Sold. Have a good day"
+                "response": "Sold. Have a good day",
+                 "state": {
+                      "onEnter": "Negotiating",
+                      "transition": "IsSuccess",
+                      "onExit": "Success"}
              }
         ]}
     ''' )

@@ -48,7 +48,7 @@ function a11yProps(index: number) {
     
 const Prompts = () => {
 
-    const { agentExecutorSession, incr } = useContext(AgentExecutorSessionContext);
+    const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
 
     const [currentStepIdx, setStepIdx] = React.useState(0); // index of selected step
     const [value, setValue] = React.useState(0); // tab index
@@ -68,6 +68,8 @@ const Prompts = () => {
         setValue(1); // Response tab
       }
       setStepIdx(idx);
+      agentExecutorSession.session.currentStep = idx;
+      updateSession( agentExecutorSession.session);
     }
 
     // mapping required because one index in the conversation log corresponds to two steps in the flow (prompt and response)
