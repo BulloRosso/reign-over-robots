@@ -30,8 +30,8 @@ const ToolsUsed = (tools) => {
     return (
     <div>
 
-        <TableContainer>
-        <Table sx={{ minWidth: 650, minHeight: 340, overflow: "hidden" }} size="small" aria-label="a dense table">
+        <TableContainer sx={{ minWidth: 650, minHeight: 340, overflow: "hidden" }}>
+        <Table  size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell>Tool</TableCell>
