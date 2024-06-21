@@ -42,14 +42,13 @@ const TaskList = () => {
                         </ListItemButton>
                   })
                   ) : (
-                 <div className="info-box" style={{ width: "100%"}}>
-                  <p>
-                  <img src="https://github.com/BulloRosso/reign-over-robots/blob/main/img/helper-tasks.jpg?raw=true" style={{ width: "290px" }} />
-                  </p>
-                    
-                    <p>
-                    No tasks / no session loaded.</p>
-                </div>
+                <span>
+                  <img src="https://github.com/BulloRosso/reign-over-robots/blob/main/img/helper-tasks.jpg?raw=true" style={{ width: "380px" }} />
+                
+                  <div className="info-box" style={{ width: "100%"}}>
+                      No tasks / no session loaded.
+                  </div>
+                </span>
         )}
         
       </List>
