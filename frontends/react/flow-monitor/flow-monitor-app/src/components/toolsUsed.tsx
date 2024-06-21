@@ -24,6 +24,9 @@ const ToolsUsed = (tools) => {
     const toolsArr : tool[] = tools.value;
     // const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
    
+    if (toolsArr == undefined) 
+        return (<div></div>);
+
     return (
     <div>
 
