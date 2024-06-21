@@ -43,6 +43,7 @@ const TaskList = () => {
                   })
                   ) : (
                  <div className="info-box">
+                    <img src="https://raw.github.com/" />
                     No tasks / no session loaded.
                 </div>
         )}
