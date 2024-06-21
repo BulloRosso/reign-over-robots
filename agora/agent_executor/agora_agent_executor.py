@@ -76,9 +76,8 @@ async def create_item(agora: str, agent: str):
         "tasks": [ { "title": "Buy a red bull",
                       "status": "completed" },
                       { "title": "Buy olives",
-                        "status": "completed" },
-                      { "title" : "Have fun", 
-                        "status": "pending" } ],
+                        "status": "pending" }
+                      ],
         "telemetryLog": [
                 { "sender": "Homebase", "timestamp": "2024-06-14T12:01Z", "message": "Add two kilos of olives to the shopping list"},
                 { "sender": "Agent", "timestamp":"2024-06-14T12:25Z", "message": "Confirmed 'olives'. But no merchant offers olives on the market."},
@@ -88,7 +87,7 @@ async def create_item(agora: str, agent: str):
         ],
         "agoraProfile": {
             "name": "Heraklion",
-            "description": "A playground for agents to exchange digital goods and services.",
+            "description": "A playground for agents to exchange digital goods and services. Currently without support for payment tools.",
             "imageUrl": "https://raw.githubusercontent.com/BulloRosso/reign-over-robots/main/img/agora-example.jpg"
                       },
         "agentProfile": {
@@ -128,7 +127,7 @@ async def create_item(agora: str, agent: str):
                     "task": "I would like to buy a red bull",
                     "memory": ""
                 },
-                "response": "I can offer you one for $2.50",
+                "response": "I can offer you one can of red bull for $2.50",
                  "state": {
                       "onEnter": "Planning",
                       "transition": "DoTasks",
@@ -139,9 +138,9 @@ async def create_item(agora: str, agent: str):
                 "receiver": "Joe",
                 "prompt" : {
                     "summary": "Buy a red bull",
-                    "system": "You are a buyer.",
-                    "task": "Accepted",
-                    "memory": "Joe said he can offer you one for $2.50"
+                    "system": "My name is Xenos and I am a customer.",
+                    "task": "Please sell me a can of red bull.",
+                    "memory": "Joe said he can offer me one can of red bull for $2.50"
                 },
                 "response": "Sold. Have a good day",
                  "state": {
