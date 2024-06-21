@@ -113,6 +113,7 @@ async def create_item(agora: str, agent: str):
                     "memory": "Martha is a seller. Joe is a seller."
                 },
                 "response": "I would like to buy a red bull",
+                "toolUsage": [],     
                 "state": {
                       "onEnter": "None",
                       "transition": "DoPlanning",
@@ -128,6 +129,7 @@ async def create_item(agora: str, agent: str):
                     "memory": ""
                 },
                 "response": "I can offer you one can of red bull for $2.50",
+                "toolUsage": [],  
                  "state": {
                       "onEnter": "Planning",
                       "transition": "DoTasks",
@@ -143,7 +145,8 @@ async def create_item(agora: str, agent: str):
                     "memory": "Joe said he can offer me one can of red bull for $2.50"
                 },
                 "response": "Sold. Have a good day",
-                 "state": {
+                "toolUsage": [ { "tool": "Payment", "timestamp": "2024-12-31T23:59:59Z", "parameters": { "amount": 2.50, "currency": "USD" }, "status": "Success" }],  
+                "state": {
                       "onEnter": "Negotiating",
                       "transition": "IsSuccess",
                       "onExit": "Success"}

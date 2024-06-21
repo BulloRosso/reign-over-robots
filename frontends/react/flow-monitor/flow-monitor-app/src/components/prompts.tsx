@@ -139,7 +139,7 @@ const Prompts = () => {
             <PromptResponse value={conversationLogEntry.response} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-             <ToolsUsed />
+             <ToolsUsed value={conversationLogEntry.toolUsage}/>
         </CustomTabPanel>
       </Box>
     );
