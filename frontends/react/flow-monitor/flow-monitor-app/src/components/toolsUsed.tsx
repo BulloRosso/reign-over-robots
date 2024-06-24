@@ -9,14 +9,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CircleCoutlined from '@mui/icons-material/CircleOutlined';
+import FindInPageOutlined from '@mui/icons-material/FindInPageOutlined';
 import { formatDistanceToNow,formatDate } from 'date-fns';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
-
+import Paper from '@mui/material/Paper';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
 interface tool {
     tool: string;
     timestamp: string;
     parameters: string;
     status: string;
+    response: string;
 }
 
 const ToolsUsed = (tools) => {
@@ -26,6 +34,21 @@ const ToolsUsed = (tools) => {
    
     if (toolsArr == undefined) 
         return (<div></div>);
+
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const [dialogOpen, setDialogOpen] = React.useState(false);
+    const [dialogContent, setDialogContent] = React.useState("");
+
+    const  handleResponseClick = (response) => {
+        setDialogContent(response);
+        setDialogOpen(true);
+        setAnchorEl(null);
+    };
+
+    const handleCloseDialog = () => {
+      setDialogOpen(false);
+    };
 
     return (
     <div>
@@ -37,14 +60,14 @@ const ToolsUsed = (tools) => {
               <TableCell>Tool</TableCell>
               <TableCell align="left">Timestamp</TableCell>
               <TableCell align="left">Parameters</TableCell>
-              
+              <TableCell align="left">Response</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {toolsArr.map((row) => (
               <TableRow
                 key={row.timestamp}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ verticalAlign: "middle", '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">
                     { row.status == "Success" ? 
@@ -58,12 +81,30 @@ const ToolsUsed = (tools) => {
                 </TableCell>
                 
                 <TableCell align="left">{JSON.stringify(row.parameters)}</TableCell>
+                <TableCell align="left"><FindInPageOutlined onClick={ () => handleResponseClick(row.response)} /></TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-
+      <Dialog
+          open={dialogOpen}
+          onClose={handleCloseDialog}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+      >
+          <DialogTitle id="alert-dialog-title">Tool response</DialogTitle>
+          <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+              {dialogContent}
+          </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+          <Button onClick={handleCloseDialog} autoFocus>
+              Close
+          </Button>
+          </DialogActions>
+      </Dialog>
       
     </div>
     );
