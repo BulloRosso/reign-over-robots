@@ -50,7 +50,7 @@ const Prompts = () => {
 
     const { agentExecutorSession, incr, updateSession } = useContext(AgentExecutorSessionContext);
 
-    const [currentStepIdx, setStepIdx] = React.useState(0); // index of selected step
+    const [currentStepIdx, setStepIdx] = React.useState(1); // index of selected step
     const [value, setValue] = React.useState(0); // tab index
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -74,13 +74,13 @@ const Prompts = () => {
 
     // mapping required because one index in the conversation log corresponds to two steps in the flow (prompt and response)
     const mapToOriginal = (idx) => {
-      if (idx < 1) 
+      if (idx == 1 || idx == -1) 
         return 0;
 
-      if (idx % 2 === 0) 
-        return idx -2;
-
-      return idx -1;
+      if (idx % 2 === 0)  
+        return idx / 2;
+     
+      return (idx -1)/2;
     }
 
     const steps = agentExecutorSession.session.steps ? (agentExecutorSession.session.steps * 2)-1 : 0;
@@ -93,9 +93,9 @@ const Prompts = () => {
         <Stack direction="row" spacing={1} sx={{ marginTop: "10px", padding:"10px", paddingBottom: 0 }}>
             {
               [...Array(steps)].map((e,i) => {
-                if (i != currentStepIdx) {
+                if ((i +1) != currentStepIdx) {
                     return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "black", color: "white" }} 
-                           onClick={() => handleStepIdxClick(i)}
+                           onClick={() => handleStepIdxClick(i + 1)}
                     />
                 } else {
                     return <Chip key={"k" + (i+1)} label={i+1} sx={{ backgroundColor: "gold" }} />

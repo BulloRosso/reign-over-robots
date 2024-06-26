@@ -13,7 +13,18 @@ const StateOverview = () => {
 
     const currentStep = agentExecutorSession.session?.currentStep ? agentExecutorSession.session?.currentStep : -1;
 
-    const currentState = currentStep > -1 ? agentExecutorSession.session.conversationLog[currentStep - 1].state.onExit : "None";
+    // mapping required because one index in the conversation log corresponds to two steps in the flow (prompt and response)
+    const mapToOriginal = (idx) => {
+        if (idx == 1 || idx == -1) 
+          return 0;
+  
+        if (idx % 2 === 0)  
+          return idx / 2;
+       
+        return (idx -1)/2;
+    }
+console.log("currentStep: ", currentStep, mapToOriginal(currentStep));
+    const currentState = currentStep > 0 ? agentExecutorSession.session.conversationLog[mapToOriginal(currentStep)].state.onExit : "None";
 
     const updExample = example.replace("class Waiting active", "class " + currentState + " active");
 
