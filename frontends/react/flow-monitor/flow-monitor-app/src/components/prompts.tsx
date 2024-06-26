@@ -126,7 +126,7 @@ const Prompts = () => {
             label={
               <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
                 <HandymanOutlined />
-              <Box component="span" sx={{ ml: 1 }}>Tools used</Box>
+              <Box component="span" sx={{ ml: 1 }}>Actions (Tools used)</Box>
             </Box>
             }
             />

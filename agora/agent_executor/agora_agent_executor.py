@@ -104,8 +104,8 @@ async def create_item(agora: str, agent: str):
                       },
         "conversationLog": [
             {
-                "sender": "Archos",
-                "receiver": "Xenos",
+                "sender": "Archos (Orchestrator)",
+                "receiver": "Xenos (Buyer)",
                 "prompt" : {
                     "summary": "Pass context as memory",
                     "system": "Hello, how can I help you today?",
@@ -120,8 +120,8 @@ async def create_item(agora: str, agent: str):
                       "onExit": "Planning"}
             },
             {
-                "sender": "Xenos",
-                "receiver": "Joe",
+                "sender": "Xenos (Buyer)",
+                "receiver": "Joe (Merchant)",
                 "prompt" : {
                     "summary": "Ask for a red bull",
                     "system": "You are a buyer.",
@@ -136,8 +136,8 @@ async def create_item(agora: str, agent: str):
                       "onExit": "Negotiating"}
             },
             {
-                "sender": "Xenos",
-                "receiver": "Joe",
+                "sender": "Xenos (Buyer)",
+                "receiver": "Joe (Merchant)",
                 "prompt" : {
                     "summary": "Buy a red bull",
                     "system": "My name is Xenos and I am a customer.",
