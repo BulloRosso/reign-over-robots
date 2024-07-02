@@ -16,7 +16,7 @@ import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 import MessageOutlined from '@mui/icons-material/MessageOutlined';
 import ToolsUsed from './toolsUsed'; 
 import PromptResponse from './promptResponse'; 
-
+import placeholder from '../assets/help-prompt-section.jpg';
 interface TabPanelProps {
   children?: React.ReactNode;
       index: number;
@@ -90,6 +90,8 @@ const Prompts = () => {
     
     return (
       <Box sx={{ width: '100%' }}>
+        { agentExecutorSession.session.conversationLog ? (
+        <span>
         <Stack direction="row" spacing={1} sx={{ marginTop: "10px", padding:"10px", paddingBottom: 0 }}>
             {
               [...Array(steps)].map((e,i) => {
@@ -141,6 +143,10 @@ const Prompts = () => {
         <CustomTabPanel value={value} index={2}>
              <ToolsUsed value={conversationLogEntry.toolUsage}/>
         </CustomTabPanel>
+        </span>
+        ) : (
+          <img src={placeholder} width="580px" style={{padding:"10px"}}></img>
+        )}
       </Box>
     );
 }
