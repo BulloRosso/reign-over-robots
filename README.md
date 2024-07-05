@@ -1,6 +1,10 @@
 # AgentZ Agora
 Agora is an experimental agent framework which is specialized in secure cross-company agent interaction.
 
+It is combined with user interfaces to monitor/debug the agents' communication:
+
+![Diagram](./img/monitor-ui-example.jpg)
+
 ## Positioning
 As of June 2024 the following agentic frameworks are popular. They focus on one company being the owner of a crew of agents while deploying different orchestration methods. 
 
@@ -10,7 +14,7 @@ As of June 2024 the following agentic frameworks are popular. They focus on one 
 | **CrewAI**      | company internal | any                    | Fixed processes (sequential, hierarchical), Consensual(Planned) not released | yes (product) |
 | **LangGraph**   | company internal | any                    | Directed cyclic graphs | yes (base technology) |
 | **Agency Swarm**  | company internal | OpenAI assistant API     | Self-orchestrated messaging | yes (product) |
-| **AgentZ Agora**| **cross-company**| GPT4..., Ollama Llama 3| Planned state flow (FSM guided)| experimental |
+| **AgentZ Agora**| **cross-company**| GPT4o, Ollama Llama 3| Planned state flow (FSM guided)| experimental |
 
 ## Problem Statement (Vision)
 "As a user I want my personal assistant to be able to send agents to places I trust to act on my behalf."
