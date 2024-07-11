@@ -113,7 +113,10 @@ async def create_item(agora: str, agent: str):
                     "memory": "Martha is a seller. Joe is a seller."
                 },
                 "response": "I would like to buy a red bull",
-                "toolUsage": [],     
+                "toolUsage": [],   
+                "tokens": 251,
+                "startTime": "2024-06-14T12:00:50Z",
+                "endTime": "2024-06-14T12:01:03Z",  
                 "state": {
                       "onEnter": "None",
                       "transition": "DoPlanning",
@@ -130,6 +133,9 @@ async def create_item(agora: str, agent: str):
                 },
                 "response": "I can offer you one can of red bull for $2.50",
                 "toolUsage": [],  
+                "tokens": 4003,
+                "startTime": "2024-06-14T12:01:04Z",
+                "endTime": "2024-06-14T12:02:12Z",  
                  "state": {
                       "onEnter": "Planning",
                       "transition": "DoTasks",
@@ -146,6 +152,9 @@ async def create_item(agora: str, agent: str):
                 },
                 "response": "Sold. Have a good day",
                 "toolUsage": [ { "tool": "Payment", "timestamp": "2024-12-31T23:59:59Z", "parameters": { "amount": 2.50, "currency": "USD" }, "status": "Success" , "response": "{ 'fileCreated': 'invoice.pdf' }" } ],  
+                "tokens": 605,
+                "startTime": "2024-06-14T12:02:13Z",
+                "endTime": "2024-06-14T12:02:55Z",  
                 "state": {
                       "onEnter": "Negotiating",
                       "transition": "IsSuccess",

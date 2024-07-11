@@ -9,6 +9,7 @@ import MoveDownOutlined from '@mui/icons-material/MoveDownOutlined';
 import SignpostOutlined from '@mui/icons-material/SignpostOutlined';
 import EmojiPeopleOutlined from '@mui/icons-material/EmojiPeopleOutlined';
 import ShareOutlined from '@mui/icons-material/ShareOutlined';
+import CreditCard from '@mui/icons-material/CreditCard';
 
 // Own components
 import WelcomeInfo from './welcome';
@@ -17,6 +18,7 @@ import AgenticInteraction from './agenticInteraction';
 import { AgentExecutorSessionContext } from '../contexts/agentExecutorContext';
 import MqttSignals from './mqttSignals';
 import LongTermMemory from './longTermMemory';
+import Costs from './costs';
 interface TabPanelProps {
 children?: React.ReactNode;
     index: number;
@@ -79,7 +81,7 @@ const MainScreen = () => {
             label={
               <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
                 <MoveDownOutlined />
-              <Box component="span" sx={{ ml: 1 }}>State Transition Diagram</Box>
+              <Box component="span" sx={{ ml: 1 }}>State Transitions</Box>
             </Box>
             }
             />
@@ -99,6 +101,14 @@ const MainScreen = () => {
             </Box>
             }
             />
+              <Tab {...a11yProps(5)} sx={{ textTransform: "none" }}
+            label={
+              <Box component="span" sx={{ display: 'flex', alignItems: 'center' }}>
+                <CreditCard />
+              <Box component="span" sx={{ ml: 1 }}>Costs</Box>
+            </Box>
+            }
+            />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
@@ -115,6 +125,9 @@ const MainScreen = () => {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={4}>
           <LongTermMemory/>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={5}>
+          <Costs/>
         </CustomTabPanel>
       </Box>
     );

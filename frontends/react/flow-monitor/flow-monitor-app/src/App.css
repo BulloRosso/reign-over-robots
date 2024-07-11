@@ -31,7 +31,9 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-
+.cost-box {
+  padding-left:20px;
+}
 
 .whiteAccordionBox {
   background-color: white;
