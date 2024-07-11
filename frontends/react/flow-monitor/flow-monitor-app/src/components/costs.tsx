@@ -13,7 +13,17 @@ interface ConversationLogEntry {
     tokens: number;
     startTime: string;
     endTime: string;
+    toolUsage: Array<toolUsageItem>
 }
+
+interface toolUsageItem  { 
+    tool: string, 
+    parameters: string, 
+    status: string, 
+    response: string,
+    startTime: string,
+    endTime: string
+}  
 
 const Costs = () => {
  
@@ -74,7 +84,11 @@ const Costs = () => {
 
             data += `   section ${stripRole(e.sender)}
                             ${e.tokens} Tk / ${getRuntime(e.startTime, e.endTime)}s   :a${i}, ${extractTime(e.startTime)}, ${extractTime(e.endTime)}\n`;
-           
+            if (e.toolUsage != null) {
+                e.toolUsage.forEach((tool, j) => {
+                    data += `       ${tool.tool + " (" + getRuntime(tool.startTime, tool.endTime) + "s)"} : crit, ${extractTime(tool.startTime)}, ${extractTime(tool.endTime)}\n`;
+                });
+            }
         });
         console.log(data);
         return data;

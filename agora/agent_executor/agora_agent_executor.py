@@ -142,8 +142,8 @@ async def create_item(agora: str, agent: str):
                       "onExit": "Negotiating"}
             },
             {
-                "sender": "Xenos (Buyer)",
-                "receiver": "Joe (Merchant)",
+                "sender": "Joe (Merchant)",
+                "receiver": "Xenos (Buyer)",
                 "prompt" : {
                     "summary": "Buy a red bull",
                     "system": "My name is Xenos and I am a customer.",
@@ -151,7 +151,10 @@ async def create_item(agora: str, agent: str):
                     "memory": "Joe said he can offer me one can of red bull for $2.50"
                 },
                 "response": "Sold. Have a good day",
-                "toolUsage": [ { "tool": "Payment", "timestamp": "2024-12-31T23:59:59Z", "parameters": { "amount": 2.50, "currency": "USD" }, "status": "Success" , "response": "{ 'fileCreated': 'invoice.pdf' }" } ],  
+                "toolUsage": [ { "tool": "Payment", "timestamp": "2024-12-31T23:59:59Z", "parameters": { "amount": 2.50, "currency": "USD" }, "status": "Success" , "response": "{ 'fileCreated': 'invoice.pdf' }",
+                       "startTime": "2024-06-14T12:02:20Z",
+                       "endTime": "2024-06-14T12:02:51Z"
+                      }],  
                 "tokens": 605,
                 "startTime": "2024-06-14T12:02:13Z",
                 "endTime": "2024-06-14T12:02:55Z",  
