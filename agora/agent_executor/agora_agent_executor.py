@@ -145,7 +145,7 @@ async def create_item(agora: str, agent: str):
                 "sender": "Joe (Merchant)",
                 "receiver": "Xenos (Buyer)",
                 "prompt" : {
-                    "summary": "Buy a red bull",
+                    "summary": "Sell a red bull",
                     "system": "My name is Xenos and I am a customer.",
                     "task": "Please sell me a can of red bull.",
                     "memory": "Joe said he can offer me one can of red bull for $2.50"
